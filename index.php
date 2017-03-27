@@ -9,6 +9,7 @@
     </head>
     <body>
         <div class="frame">
+            <!-- nav -->
             <div class="navigation-container">
                 <div id="wildz" class="navigation-item">
                     <a href="<?php echo $Site->url() ?>wild-stuff">
@@ -46,6 +47,7 @@
                 </div>
                 <div style="clear: both;"></div>
             </div>
+            <!-- nav end -->
 
 
 <?php 
@@ -55,99 +57,12 @@
     */
 
     if ($Url->whereAmI() == 'page') {
-        $content = $Page->content();
-        $title = $Page->title();
-        error_log($title);
-        if ( $title == 'START' ) {
-            $contentArray = explode(PHP_EOL, $content);
-            echo '<div class="content">';
-            echo $contentArray[array_rand($contentArray)];
-            echo '</div>';
-        } elseif ($title == 'NEWS &amp; EXPOS'){
-            echo '<div class="leftCol">'.$content.'</div>';
-            // echo '<div class="rightCol">';
-                        // list all posts
-                        $totalPublishedPosts = $dbPosts->numberPost(true);
-                        $posts = buildPostsForPage(0, $totalPublishedPosts, true, false);
-                    foreach ($posts as $Post) {
-                        if (strpos($Post->tags(), 'Expo') !== false) {
-                            echo '<div class="workslist">';
-                            echo '<a href="'.$Post->permalink() .'">';
-                            echo '<h3>'.$Post->title().'</h3>';
-                            if($Post->coverImage()) {
-                                echo '<img src="'.$Post->coverImage().'" alt="Cover Image">';
-                            }
-                            echo '</a>';
-                            echo '</div>';
-                        }
-                    }
-                    echo '<div style="clear: both;"></div>';
-            // echo '</div>';
-            echo '<div style="clear: both;"></div>';
-        } else {
-            echo '<h2>'.$title.'</h2>';
-            echo '<div class="content">'.$content.'</div>';
-        }
+	    include(THEME_DIR_PHP.'page.php');
     } elseif ($Url->whereAmI() == 'post')  {
-        echo '<h1>'.$Post->title().'</h1>';
-        echo '<br>';
-        echo '<em>'.$Post->description().'</em>';
-        echo '<br>';
-	    echo $Post->content();
-        $currentTag = explode(',' , $Post->tags())[0];
-        echo $currentTag;
-        // now we need next und prev post!
-        // lets start with a list of all posts
-
+	    include(THEME_DIR_PHP.'post.php');
     } elseif ( ($Url->whereAmI()=='blog') || ($Url->whereAmI()=='tag') )  {
-        
-        // list all tags
-        global $dbTags;
-        global $Url;
-
-        $db = $dbTags->db['postsIndex'];
-        $filter = $Url->filters('tag');
-
-        $tagArray = array();
-
-        foreach($db as $tagKey=>$fields)
-        {
-           $tagArray[] = array('tagKey'=>$tagKey, 'count'=>$dbTags->countPostsByTag($tagKey), 'name'=>$fields['name']);
-        }
-
-        usort($tagArray, function($a, $b) {
-           return $b['count'] - $a['count'];
-        });
-
-        echo '<h3 style="float: right;">WORKS</h3>';
-        echo '<ul class="taglist">';
-        echo '<li><a href="'.$Site->url().'works">all</a></li>';
-        foreach($tagArray as $tagKey=>$fields)
-        {
-           // Print the parent
-           echo '<li><a href="'.HTML_PATH_ROOT.$filter.'/'.$fields['tagKey'].'">'.$fields['name'].' ('.$fields['count'].')</a></li>';
-        }
-        echo '</ul>';
-
-        if ($Url->whereAmI() == 'blog') {
-            // list all posts
-            $totalPublishedPosts = $dbPosts->numberPost(true);
-            $posts = buildPostsForPage(0, $totalPublishedPosts, true, false);
-        }
-        foreach ($posts as $Post) {
-            echo '<div class="workslist">';
-            echo '<a href="'.$Post->permalink() .'">';
-            echo '<h3>'.$Post->title().'</h3>';
-		if($Post->coverImage()) {
-			echo '<img src="'.$Post->coverImage().'" alt="Cover Image">';
-		}
-            echo '</a>';
-            echo '</div>';
-        }
-        echo '<div style="clear: both;"></div>';
+	    include(THEME_DIR_PHP.'works.php');
     }
-
-
 ?>
 
 
