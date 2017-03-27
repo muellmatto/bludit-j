@@ -60,7 +60,7 @@
         error_log($title);
         if ( $title == 'START' ) {
             $contentArray = explode(PHP_EOL, $content);
-            echo '<div class="content">';
+            echo '<div class="content startpage-content">';
             echo $contentArray[array_rand($contentArray)];
             echo '</div>';
         } elseif ($title == 'NEWS &amp; EXPOS'){
