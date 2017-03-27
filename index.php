@@ -151,7 +151,9 @@
 ?>
 
 
-
+            <a href="<?php echo $Site->url() ?>impressum">
+                <span style="float: right; padding: 2rem;">IMPRESSUM</span>
+            </a>
         </div>
 
     </body>
