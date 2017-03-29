@@ -1,10 +1,11 @@
-$border-width: 0.5rem;
+$border-width: 0.2rem;
 $content-padding: 1.5rem;
 $startpage-padding: 0.1rem;
 $workslist-height: 16rem;
 $maxwidth: 70rem;
 $navigation-height: 3.5rem;
-$switch-width: 40rem;
+$switch-width1: 40rem;
+$switch-width2: 20rem;
 
 body {
     // font-family: 'PT Sans Narrow', sans-serif;
@@ -58,7 +59,7 @@ h2 {
 
 h3 {
     padding-right: $content-padding;
-    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    // text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
 iframe {
@@ -136,6 +137,7 @@ iframe {
 
 .workslist img {
     max-width: 100%;
+    max-height: calc(100% - 3.65rem);
 }
 
 .content img {
@@ -149,7 +151,7 @@ iframe {
 }
 
 // large
-@media (min-width: $switch-width) {
+@media (min-width: $switch-width1) {
     .navigation-item {
         width: calc(100%/8);
     }
@@ -176,8 +178,23 @@ iframe {
         width: calc(100%/2);
     }
 }
+// media 
+@media (max-width: $switch-width1) {
+    .navigation-item {
+        width: calc(100%/4);
+    }
+    .home-item {
+        width: 0;
+        display: none;
+    }
+    .workslist {
+        float: left;
+        width: calc(100%/2);
+    }
+
+}
 // small
-@media (max-width: $switch-width) {
+@media (max-width: $switch-width2) {
     img {
         // width: 75%;
     }
