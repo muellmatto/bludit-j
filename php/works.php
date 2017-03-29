@@ -47,11 +47,12 @@
                 } else {
                     $style = '';
                 }
-                echo '<div class="workslist" '.$style.'>';
+                // echo '<div class="workslist" '.$style.'>';
+                echo '<div class="workslist">';
                 echo '<a href="'.$Post->permalink() .'">';
                 echo '<h3>'.$Post->title().'</h3>';
                 if($Post->coverImage()) {
-                    // echo '<img src="'.$Post->coverImage().'" alt="Cover Image">';
+                    echo '<img src="'.$Post->coverImage().'" alt="Cover Image">';
                 }
                 echo '</a>';
                 echo '</div>';
