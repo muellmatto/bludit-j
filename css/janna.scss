@@ -1,4 +1,5 @@
 $border-width: 0.2rem;
+$border-width: 0rem;
 $content-padding: 1.5rem;
 $startpage-padding: 0.1rem;
 $workslist-height: 16rem;
@@ -27,7 +28,7 @@ img {
     box-sizing: border-box;
     padding: 0.1rem;
     display: block;
-    margin: auto;
+    max-height: 100%;
 }
 
 p {
@@ -100,7 +101,7 @@ iframe {
 }
 
 
-.content {
+.worksListFrame , .content {
     border-right-style: solid;
     border-bottom-style: solid;
     border-width: $border-width;
@@ -132,17 +133,12 @@ iframe {
 
 .workslist {
     height: $workslist-height;
-    overflow: hidden;
     box-sizing: border-box;
-    border-bottom-style: solid;
-    border-right-style: solid;
-    border-width: $border-width;
     padding: calc(#{$content-padding} /4)
 }
 
 .workslist img {
     max-width: 100%;
-    max-height: calc(100% - 3.65rem);
 }
 
 .content img {
@@ -177,7 +173,6 @@ iframe {
     }
     .workslist {
         float: left;
-        width: calc(100%/6);
     }
     .news {
         width: calc(100%/2);
@@ -194,7 +189,6 @@ iframe {
     }
     .workslist {
         float: left;
-        width: calc(100%/2);
     }
 
 }

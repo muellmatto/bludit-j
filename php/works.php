@@ -30,6 +30,9 @@
         }
         echo '</ul>';
 
+        
+        echo '<div class="worksListFrame">';
+
         if ($Url->whereAmI() == 'blog') {
             // list all posts
             $totalPublishedPosts = $dbPosts->numberPost(true);
@@ -37,28 +40,19 @@
         }
         foreach ($posts as $Post) {
             if ( $Post->tags() != 'News' ) {
-                if($Post->coverImage()) {
-                    // echo '<img src="'.$Post->coverImage().'" alt="Cover Image">';
-                    $style = 'style="';
-                    $style .= 'background-image: url('.$Post->coverImage().');';
-                    $style .= 'background-size: cover;';
-                    $style .= 'background-position: 50% 50%;';
-                    $style .= '"';
-                } else {
-                    $style = '';
-                }
-                // echo '<div class="workslist" '.$style.'>';
                 echo '<div class="workslist">';
                 echo '<a href="'.$Post->permalink() .'">';
-                echo '<h4>'.$Post->title().'</h4>';
                 if($Post->coverImage()) {
                     echo '<img src="'.$Post->coverImage().'" alt="Cover Image">';
+                } else {
+                    echo '<h4>'.$Post->title().'</h4>';
                 }
                 echo '</a>';
                 echo '</div>';
             }
         }
         echo '<div style="clear: both;"></div>';
+        echo '</div>';
 ?>
 
 <div id="test">

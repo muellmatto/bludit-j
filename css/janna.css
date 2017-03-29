@@ -9,7 +9,7 @@ img {
   box-sizing: border-box;
   padding: 0.1rem;
   display: block;
-  margin: auto; }
+  max-height: 100%; }
 
 p {
   margin-top: 0;
@@ -29,7 +29,7 @@ em {
 h2 {
   border-bottom-style: solid;
   border-right-style: solid;
-  border-width: 0.2rem;
+  border-width: 0rem;
   margin: 0;
   padding: 1.5rem; }
 
@@ -48,7 +48,7 @@ iframe {
   margin: auto;
   border-top-style: solid;
   border-left-style: solid;
-  border-width: 0.2rem;
+  border-width: 0rem;
   box-sizing: border-box; }
 
 .home-item, .navigation-item {
@@ -56,7 +56,7 @@ iframe {
   float: right;
   border-bottom-style: solid;
   border-right-style: solid;
-  border-width: 0.2rem;
+  border-width: 0rem;
   box-sizing: border-box; }
 
 .navigation-content {
@@ -65,10 +65,10 @@ iframe {
   padding: 0.2rem;
   box-sizing: border-box; }
 
-.content {
+.worksListFrame, .content {
   border-right-style: solid;
   border-bottom-style: solid;
-  border-width: 0.2rem;
+  border-width: 0rem;
   box-sizing: border-box;
   padding: 1.5rem; }
 
@@ -78,7 +78,7 @@ iframe {
 .leftCol, .rightCol {
   border-bottom-style: solid;
   border-right-style: solid;
-  border-width: 0.2rem;
+  border-width: 0rem;
   box-sizing: border-box;
   min-height: 16rem;
   padding: 1.5rem; }
@@ -86,22 +86,17 @@ iframe {
 .taglist {
   border-bottom-style: solid;
   border-right-style: solid;
-  border-width: 0.2rem;
+  border-width: 0rem;
   margin: 0;
   padding: 1.5rem; }
 
 .workslist {
   height: 16rem;
-  overflow: hidden;
   box-sizing: border-box;
-  border-bottom-style: solid;
-  border-right-style: solid;
-  border-width: 0.2rem;
   padding: calc(1.5rem /4); }
 
 .workslist img {
-  max-width: 100%;
-  max-height: calc(100% - 3.65rem); }
+  max-width: 100%; }
 
 .content img {
   width: 50%; }
@@ -131,8 +126,7 @@ iframe {
     float: right; }
 
   .workslist {
-    float: left;
-    width: calc(100%/6); }
+    float: left; }
 
   .news {
     width: calc(100%/2); } }
@@ -145,8 +139,7 @@ iframe {
     display: none; }
 
   .workslist {
-    float: left;
-    width: calc(100%/2); } }
+    float: left; } }
 @media (max-width: 20rem) {
   .navigation-item {
     width: calc(100%/4); }
