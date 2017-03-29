@@ -50,7 +50,7 @@
                 // echo '<div class="workslist" '.$style.'>';
                 echo '<div class="workslist">';
                 echo '<a href="'.$Post->permalink() .'">';
-                echo '<h3>'.$Post->title().'</h3>';
+                echo '<h4>'.$Post->title().'</h4>';
                 if($Post->coverImage()) {
                     echo '<img src="'.$Post->coverImage().'" alt="Cover Image">';
                 }

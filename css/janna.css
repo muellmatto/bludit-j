@@ -36,6 +36,10 @@ h2 {
 h3 {
   padding-right: 1.5rem; }
 
+h4 {
+  margin-top: 0;
+  display: none; }
+
 iframe {
   width: 100%; }
 
@@ -93,7 +97,7 @@ iframe {
   border-bottom-style: solid;
   border-right-style: solid;
   border-width: 0.2rem;
-  padding: 1.5rem; }
+  padding: calc(1.5rem /4); }
 
 .workslist img {
   max-width: 100%;
@@ -128,7 +132,7 @@ iframe {
 
   .workslist {
     float: left;
-    width: calc(100%/4); }
+    width: calc(100%/6); }
 
   .news {
     width: calc(100%/2); } }
