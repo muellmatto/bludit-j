@@ -104,7 +104,8 @@ iframe {
 
 .news {
   background-color: mistyrose;
-  height: 32rem; }
+  height: 32rem;
+  overflow: scroll; }
 
 @media (min-width: 40rem) {
   .navigation-item {
