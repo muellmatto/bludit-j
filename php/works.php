@@ -34,12 +34,22 @@
             $posts = buildPostsForPage(0, $totalPublishedPosts, true, false);
         }
         foreach ($posts as $Post) {
-            echo '<div class="workslist">';
+            if($Post->coverImage()) {
+                // echo '<img src="'.$Post->coverImage().'" alt="Cover Image">';
+                $style = 'style="';
+                $style .= 'background-image: url('.$Post->coverImage().');';
+                $style .= 'background-size: cover;';
+                $style .= 'background-position: 50% 50%;';
+                $style .= '"';
+            } else {
+                $style = '';
+            }
+            echo '<div class="workslist" '.$style.'>';
             echo '<a href="'.$Post->permalink() .'">';
             echo '<h3>'.$Post->title().'</h3>';
-		if($Post->coverImage()) {
-			echo '<img src="'.$Post->coverImage().'" alt="Cover Image">';
-		}
+            if($Post->coverImage()) {
+                // echo '<img src="'.$Post->coverImage().'" alt="Cover Image">';
+            }
             echo '</a>';
             echo '</div>';
         }
@@ -50,4 +60,28 @@
 </div>
 
 <script>
+    function listWorks () {
+        var worksList = this.responseText;
+        console.log(worksList[0]);
+        // getWorkItem(worksList[0].key);
+    }
+
+    function showWork() {
+        var work = this.responseText;
+        console.log(work);
+    }
+
+    function getWorkItem (work) {
+        var req = new XMLHttpRequest();
+        req.addEventListener("load", showWork);
+        req.open("GET", "<?php $Site->url()?>api/show/post/" + work);
+        req.send();
+    }
+
+    function getWorksList () {
+        var req = new XMLHttpRequest();
+        req.addEventListener("load", listWorks);
+        req.open("GET", "http://localhost:8000/api/show/all/posts/93d779a0a7b653fa81dcc81ec076c557");
+        req.send();
+    }
 </script>
