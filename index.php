@@ -3,6 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+        <!-- link href="https://fonts.googleapis.com/css?family=Nunito|Open+Sans+Condensed:300|PT+Sans+Narrow|Quicksand|Raleway" rel="stylesheet" -->
         <link rel="stylesheet" href="<?php echo HTML_PATH_THEME_CSS.'normalize.css' ?>" \>
         <link rel="stylesheet" href="<?php echo HTML_PATH_THEME_CSS.'janna.css' ?>" \>
         <script type="text/javascript" src="<?php echo HTML_PATH_THEME_JS.'janna.js' ?>"></script>
@@ -33,7 +34,7 @@
                     </a>
                 </div>
                 <div id="news" class="navigation-item">
-                    <a href="<?php echo $Site->url() ?>news-expos">
+                    <a href="<?php echo $Site->url() ?>news">
                         <div class="navigation-content">
                             NEWS & EXPOS
                         </div>
@@ -50,20 +51,22 @@
             <!-- nav end -->
 
 
-<?php 
-    /*
-    echo $Url->whereAmI();
-        home | page | blog | post | tag
-    */
+                <?php 
+                    /*
+                    echo $Url->whereAmI();
+                        home | page | blog | post | tag
+                    */
 
-    if ($Url->whereAmI() == 'page') {
-	    include(THEME_DIR_PHP.'page.php');
-    } elseif ($Url->whereAmI() == 'post')  {
-	    include(THEME_DIR_PHP.'post.php');
-    } elseif ( ($Url->whereAmI()=='blog') || ($Url->whereAmI()=='tag') )  {
-	    include(THEME_DIR_PHP.'works.php');
-    }
-?>
+                    if ($Url->slug() == "news"){
+                        include(THEME_DIR_PHP.'news.php');
+                    }elseif ($Url->whereAmI() == 'page') {
+                        include(THEME_DIR_PHP.'page.php');
+                    } elseif ($Url->whereAmI() == 'post')  {
+                        include(THEME_DIR_PHP.'post.php');
+                    } elseif ( ($Url->whereAmI()=='blog') || ($Url->whereAmI()=='tag') )  {
+                        include(THEME_DIR_PHP.'works.php');
+                    }
+                ?>
 
 
             <a href="<?php echo $Site->url() ?>impressum">
