@@ -23,8 +23,10 @@
         echo '<li><a href="'.$Site->url().'works">all</a></li>';
         foreach($tagArray as $tagKey=>$fields)
         {
-           // Print the parent
-           echo '<li><a href="'.HTML_PATH_ROOT.$filter.'/'.$fields['tagKey'].'">'.$fields['name'].' ('.$fields['count'].')</a></li>';
+            // Print the parent
+            if ( $fields['name'] != 'News') {
+                echo '<li><a href="'.HTML_PATH_ROOT.$filter.'/'.$fields['tagKey'].'">'.$fields['name'].' ('.$fields['count'].')</a></li>';
+            }
         }
         echo '</ul>';
 
@@ -34,24 +36,26 @@
             $posts = buildPostsForPage(0, $totalPublishedPosts, true, false);
         }
         foreach ($posts as $Post) {
-            if($Post->coverImage()) {
-                // echo '<img src="'.$Post->coverImage().'" alt="Cover Image">';
-                $style = 'style="';
-                $style .= 'background-image: url('.$Post->coverImage().');';
-                $style .= 'background-size: cover;';
-                $style .= 'background-position: 50% 50%;';
-                $style .= '"';
-            } else {
-                $style = '';
+            if ( $Post->tags() != 'News' ) {
+                if($Post->coverImage()) {
+                    // echo '<img src="'.$Post->coverImage().'" alt="Cover Image">';
+                    $style = 'style="';
+                    $style .= 'background-image: url('.$Post->coverImage().');';
+                    $style .= 'background-size: cover;';
+                    $style .= 'background-position: 50% 50%;';
+                    $style .= '"';
+                } else {
+                    $style = '';
+                }
+                echo '<div class="workslist" '.$style.'>';
+                echo '<a href="'.$Post->permalink() .'">';
+                echo '<h3>'.$Post->title().'</h3>';
+                if($Post->coverImage()) {
+                    // echo '<img src="'.$Post->coverImage().'" alt="Cover Image">';
+                }
+                echo '</a>';
+                echo '</div>';
             }
-            echo '<div class="workslist" '.$style.'>';
-            echo '<a href="'.$Post->permalink() .'">';
-            echo '<h3>'.$Post->title().'</h3>';
-            if($Post->coverImage()) {
-                // echo '<img src="'.$Post->coverImage().'" alt="Cover Image">';
-            }
-            echo '</a>';
-            echo '</div>';
         }
         echo '<div style="clear: both;"></div>';
 ?>
