@@ -1,4 +1,4 @@
-$border-width: 0.3rem;
+$border-width: 0.5rem;
 $content-padding: 1.5rem;
 $startpage-padding: 0.1rem;
 $workslist-height: 16rem;
@@ -7,8 +7,14 @@ $navigation-height: 3.5rem;
 $switch-width: 40rem;
 
 body {
+    // font-family: 'PT Sans Narrow', sans-serif;
+    // font-family: 'Raleway', sans-serif;
+    // font-family: 'Open Sans Condensed', sans-serif;
+    // font-family: 'Quicksand', sans-serif;
+    // font-family: 'Nunito', sans-serif;
     font-family: 'Josefin Sans', sans-serif;
-    line-height: 1.1rem;
+    // line-height: 1.1rem;
+    // margin-top: 1rem;
 }
 
 a {
@@ -17,14 +23,29 @@ a {
 }
 
 img {
-    width: 100%;
     box-sizing: border-box;
     padding: 0.1rem;
+    display: block;
+    margin: auto;
 }
 
 p {
     margin-top: 0;
     padding-top: 0.5rem;
+}
+
+h1 {
+    color: red;
+    animation: blinker 1s linear infinite;
+}
+
+em {
+    animation: blinker 1s linear infinite;
+    font-style: normal;
+}
+
+@keyframes blinker {
+    50% { opacity:0; }
 }
 
 h2 {
@@ -37,6 +58,11 @@ h2 {
 
 h3 {
     padding-right: $content-padding;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+iframe {
+    width: 100%;
 }
 
 .frame {
@@ -81,19 +107,13 @@ h3 {
 }
 
 
-.leftCol {
+.leftCol , .rightCol {
     border-bottom-style: solid;
     border-right-style: solid;
     border-width: $border-width;
     box-sizing: border-box;
     min-height: 16rem;
     padding: $content-padding
-}
-
-.rightCol {
-    border-width: $border-width;
-    box-sizing: border-box;
-    min-height: 16rem;
 }
 
 .taglist {
@@ -111,9 +131,22 @@ h3 {
     border-bottom-style: solid;
     border-right-style: solid;
     border-width: $border-width;
+    padding: $content-padding
 }
 
+.workslist img {
+    max-width: 100%;
+}
 
+.content img {
+    width: 50%
+}
+
+.rosa {
+    background-color: mistyrose;
+}
+
+// large
 @media (min-width: $switch-width) {
     .navigation-item {
         width: calc(100%/8);
@@ -138,7 +171,11 @@ h3 {
         width: calc(100%/4);
     }
 }
+// small
 @media (max-width: $switch-width) {
+    img {
+        // width: 75%;
+    }
     .navigation-item {
         width: calc(100%/4);
     }
