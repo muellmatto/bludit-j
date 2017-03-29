@@ -142,8 +142,9 @@ iframe {
     width: 50%
 }
 
-.rosa {
+.news {
     background-color: mistyrose;
+    height: 32rem;
 }
 
 // large
@@ -169,6 +170,9 @@ iframe {
     .workslist {
         float: left;
         width: calc(100%/4);
+    }
+    .news {
+        width: calc(100%/2);
     }
 }
 // small

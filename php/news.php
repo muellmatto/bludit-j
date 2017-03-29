@@ -20,7 +20,7 @@
             // echo $content;
             // fill in news posts
             foreach ($newsPosts as $n) {
-                echo '<div class="workslist rosa">';
+                echo '<div class="workslist news">';
                 // echo '<div class="">';
                 echo '<a href="'.$n->permalink() .'">';
                 echo '<h3>'.$n->title().'</h3>';

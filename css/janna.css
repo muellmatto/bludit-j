@@ -102,8 +102,9 @@ iframe {
 .content img {
   width: 50%; }
 
-.rosa {
-  background-color: mistyrose; }
+.news {
+  background-color: mistyrose;
+  height: 32rem; }
 
 @media (min-width: 40rem) {
   .navigation-item {
@@ -126,7 +127,10 @@ iframe {
 
   .workslist {
     float: left;
-    width: calc(100%/4); } }
+    width: calc(100%/4); }
+
+  .news {
+    width: calc(100%/2); } }
 @media (max-width: 40rem) {
   .navigation-item {
     width: calc(100%/4); }
