@@ -132,15 +132,17 @@ iframe {
 }
 
 .workslist {
-    height: $workslist-height;
+    // height: $workslist-height;
     box-sizing: border-box;
     padding: calc(#{$content-padding} /4);
     margin: calc(#{$content-padding} /4);
     overflow: hidden;
+    // max-width: 24rem;
 }
 
 .workslist img {
     max-width: 100%;
+    max-height: 16rem;
 }
 
 .content img {
