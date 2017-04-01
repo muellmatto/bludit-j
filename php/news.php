@@ -1,3 +1,4 @@
+<marquee behavior="scroll" direction="left" class="scrollingText">.........Hier läuft viel Text rum!.....</marquee>
 <?php
             // get all posts
             $totalPublishedPosts = $dbPosts->numberPost(true);
@@ -21,14 +22,13 @@
             // fill in news posts
             foreach ($newsPosts as $n) {
                 echo '<div class="workslist news">';
-                // echo '<div class="">';
                 echo '<a href="'.$n->permalink() .'">';
                 echo '<h3>'.$n->title().'</h3>';
+                echo '<h5>'.$n->date().'</h5>';
                 if($n->coverImage()) {
                     echo '<img src="'.$n->coverImage().'" alt="Cover Image">';
                 }
                 echo '</a>';
-                echo $n->content();
                 echo '</div>';
             }
             // echo '</div>';
@@ -36,22 +36,14 @@
             // fill site with exhibitions
             // echo '<div class="rightCol">';
             foreach ($exhiPosts as $e) {
-                if($e->coverImage()) {
-                    // echo '<img src="'.$Post->coverImage().'" alt="Cover Image">';
-                    $style = 'style="';
-                    $style .= 'background-image: url('.$e->coverImage().');';
-                    $style .= 'background-size: cover;';
-                    $style .= 'background-position: 50% 50%;';
-                    $style .= '"';
-                } else {
-                    $style = '';
-                }
-                echo '<div class="workslist" '.$style.'>';
-                // echo '<div class="">';
+                echo '<div class="workslist exhibitions">';
                 echo '<a href="'.$e->permalink() .'">';
                 echo '<h3>'.$e->title().'</h3>';
-                if($e->coverImage()) {
-                    // echo '<img src="'.$e->coverImage().'" alt="Cover Image">';
+                echo '<h5>'.$e->date().'</h5>';
+                if($Post->coverImage()) {
+                    echo '<img src="'.$e->coverImage().'" alt="Cover Image">';
+                } else {
+                    echo '<h4>'.$e->title().'</h4>';
                 }
                 echo '</a>';
                 echo '</div>';

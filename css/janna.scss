@@ -134,7 +134,9 @@ iframe {
 .workslist {
     height: $workslist-height;
     box-sizing: border-box;
-    padding: calc(#{$content-padding} /4)
+    padding: calc(#{$content-padding} /4);
+    margin: calc(#{$content-padding} /4);
+    overflow: hidden;
 }
 
 .workslist img {
@@ -146,9 +148,13 @@ iframe {
 }
 
 .news {
-    background-color: mistyrose;
-    height: 32rem;
-    overflow: scroll;
+    background-color: #ff005e;
+    // height: 32rem;
+    // overflow: scroll;
+}
+
+.exhibitions {
+    background-color: #48fd90;
 }
 
 // large
@@ -175,7 +181,7 @@ iframe {
         float: left;
     }
     .news {
-        width: calc(100%/2);
+        // width: calc(100%/2);
     }
 }
 // media 

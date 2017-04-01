@@ -93,7 +93,9 @@ iframe {
 .workslist {
   height: 16rem;
   box-sizing: border-box;
-  padding: calc(1.5rem /4); }
+  padding: calc(1.5rem /4);
+  margin: calc(1.5rem /4);
+  overflow: hidden; }
 
 .workslist img {
   max-width: 100%; }
@@ -102,9 +104,10 @@ iframe {
   width: 50%; }
 
 .news {
-  background-color: mistyrose;
-  height: 32rem;
-  overflow: scroll; }
+  background-color: #ff005e; }
+
+.exhibitions {
+  background-color: #48fd90; }
 
 @media (min-width: 40rem) {
   .navigation-item {
@@ -126,10 +129,7 @@ iframe {
     float: right; }
 
   .workslist {
-    float: left; }
-
-  .news {
-    width: calc(100%/2); } }
+    float: left; } }
 @media (max-width: 40rem) {
   .navigation-item {
     width: calc(100%/4); }
