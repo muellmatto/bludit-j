@@ -46,6 +46,7 @@ iframe {
 .frame {
   max-width: 70rem;
   margin: auto;
+  margin-top: 1rem;
   border-top-style: solid;
   border-left-style: solid;
   border-width: 0rem;
@@ -102,6 +103,9 @@ iframe {
 
 .content img {
   width: 50%; }
+
+.startpage-content img {
+  width: 100%; }
 
 .news {
   background-color: #ff005e; }

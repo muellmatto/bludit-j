@@ -75,6 +75,7 @@ iframe {
 .frame {
     max-width: $maxwidth;
     margin: auto;
+    margin-top: 1rem;
     border-top-style: solid;
     border-left-style: solid;
     border-width: $border-width;
@@ -146,7 +147,11 @@ iframe {
 }
 
 .content img {
-    width: 50%
+    width: 50%;
+}
+
+.startpage-content img {
+    width: 100%;
 }
 
 .news {
