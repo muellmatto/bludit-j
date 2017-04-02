@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><?php echo $Site->title() ?></title>
         <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
-        <!-- link href="https://fonts.googleapis.com/css?family=Nunito|Open+Sans+Condensed:300|PT+Sans+Narrow|Quicksand|Raleway" rel="stylesheet" -->
-        <link rel="stylesheet" href="<?php echo HTML_PATH_THEME_CSS.'normalize.css' ?>" \>
-        <link rel="stylesheet" href="<?php echo HTML_PATH_THEME_CSS.'janna.css' ?>" \>
-        <script type="text/javascript" src="<?php echo HTML_PATH_THEME_JS.'janna.js' ?>"></script>
+        <?php Theme::css('normalize.css') ?>
+        <?php Theme::css('janna.css') ?>
+        <?php Theme::javascript('janna.js') ?>
+        <?php Theme::plugins('siteHead'); ?>
     </head>
     <body>
+        <?php Theme::plugins('siteBodyBegin') ?>
+
         <div class="frame">
             <!-- nav -->
             <div class="navigation-container">
-                <div id="wildz" class="navigation-item">
-                    <a href="<?php echo $Site->url() ?>wild-stuff">
-                        <div class="navigation-content">
-                            WILD STUFF
+
+                <?php
+                    $parents = $pagesParents[NO_PARENT_CHAR];
+                    foreach($parents as $Parent):
+                        if ( ($Site->homepage() != $Parent->slug()) && ( $Parent->slug() != 'impressum' ) ): 
+                ?>
+                        <div class="navigation-item">
+                            <a href="<?php echo $Parent->permalink() ?>">
+                                <div class="navigation-content">
+                                    <?php echo $Parent->title(); ?>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                <div id="cv" class="navigation-item">
-                    <a href="<?php echo $Site->url() ?>cv">
-                        <div class="navigation-content">
-                            CV
-                        </div>
-                    </a>
-                </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+
                 <div id="work" class="navigation-item">
-                    <a href="<?php echo $Site->url() ?>works">
+                    <a href="<?php echo $Site->uriFilters('blog')?>">
                         <div class="navigation-content">
                             WORKS
                         </div>
@@ -73,6 +79,8 @@
                 <span style="float: right; padding: 2rem;">IMPRESSUM</span>
             </a>
         </div>
+        
+        <?php Theme::plugins('siteBodyEnd') ?>
 
     </body>
 </html>
