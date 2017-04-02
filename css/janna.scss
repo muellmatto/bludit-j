@@ -80,6 +80,7 @@ iframe {
     border-left-style: solid;
     border-width: $border-width;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .navigation-container {
