@@ -1,5 +1,5 @@
-<marquee behavior="scroll" direction="left" class="scrollingText">.........Hier läuft viel Text rum!.....</marquee>
 <?php
+            echo $plugins['all']['treadmill']->get();
             // get all posts
             $totalPublishedPosts = $dbPosts->numberPost(true);
             $posts = buildPostsForPage(0, $totalPublishedPosts, true, false);
