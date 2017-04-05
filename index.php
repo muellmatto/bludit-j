@@ -21,10 +21,15 @@
                     $parents = $pagesParents[NO_PARENT_CHAR];
                     foreach($parents as $Parent):
                         if ( ($Site->homepage() != $Parent->slug()) && ( $Parent->slug() != 'impressum' ) ): 
+                            if ( strpos($Url->slug(), $Parent->slug() ) !== false) {
+                                $class = 'active';
+                            } else {
+                                $class = '';
+                            }
                 ?>
                         <div class="navigation-item">
                             <a href="<?php echo $Parent->permalink() ?>">
-                                <div class="navigation-content">
+                            <div class="navigation-content <?php echo $class ?>">
                                     <?php echo $Parent->title(); ?>
                                 </div>
                             </a>
@@ -34,21 +39,15 @@
 
                 <div id="work" class="navigation-item">
                     <a href="<?php echo $Site->uriFilters('blog')?>">
-                        <div class="navigation-content">
+                    <div class="navigation-content <?php if ( $Url->whereAmI() == 'blog' || $Url->whereAmI() == 'tag') {echo 'active';} ?>">
                             WORKS
                         </div>
                     </a>
                 </div>
                 <div id="news" class="navigation-item">
                     <a href="<?php echo $Site->url() ?>news">
-                        <div class="navigation-content">
+                    <div class="navigation-content <?php if ( $Url->slug() == 'news') {echo 'active';} ?>">
                             NEWS & EXPOS
-                        </div>
-                    </a>
-                </div>
-                <div id="home" class="home-item">
-                    <a href="<?php echo $Site->url() ?>">
-                        <div class="navigation-content">
                         </div>
                     </a>
                 </div>
