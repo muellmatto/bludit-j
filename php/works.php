@@ -19,7 +19,8 @@
         });
 
         echo '<ul class="taglist">';
-        echo '<li class="tagItem"><a href="'.$Site->url().'works">all</a></li>';
+        $totalPublishedPosts = $dbPosts->numberPost(true);
+        echo '<li class="tagItem"><a href="'.$Site->url().'works">all ('.$totalPublishedPosts.')</a></li>';
         foreach($tagArray as $tagKey=>$fields)
         {
             // Print the parent
