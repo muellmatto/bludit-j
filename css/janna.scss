@@ -75,10 +75,12 @@ iframe {
 .frame {
     max-width: $maxwidth;
     margin: auto;
+    margin-top: 1rem;
     border-top-style: solid;
     border-left-style: solid;
     border-width: $border-width;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .navigation-container {
@@ -91,6 +93,11 @@ iframe {
     border-right-style: solid;
     border-width: $border-width;
     box-sizing: border-box;
+    padding: 0.5rem;
+}
+
+.home-item {
+    float: left;
 }
 
 .navigation-content {
@@ -100,6 +107,14 @@ iframe {
     box-sizing: border-box;
 }
 
+.subNavigation {
+    float: left;
+}
+
+.active {
+    // text-decoration: underline;
+    text-decoration: line-through;
+}
 
 .worksListFrame , .content {
     border-right-style: solid;
@@ -124,11 +139,15 @@ iframe {
 }
 
 .taglist {
-    border-bottom-style: solid;
-    border-right-style: solid;
-    border-width: $border-width;
     margin: 0;
-    padding: $content-padding;
+    // padding: $content-padding;
+    list-style-type: none;
+}
+
+.tagItem {
+    color: red;
+    padding-right: 0.5rem;
+    float: left;
 }
 
 .workslist {
@@ -146,7 +165,11 @@ iframe {
 }
 
 .content img {
-    width: 50%
+    width: 50%;
+}
+
+.startpage-content img {
+    width: 100%;
 }
 
 .news {
@@ -162,10 +185,10 @@ iframe {
 // large
 @media (min-width: $switch-width1) {
     .navigation-item {
-        width: calc(100%/8);
+        // width: calc(100%/8);
     }
     .home-item {
-        width: 50%;
+        // width: 50%;
     }
     .leftCol {
         width: 50%;
@@ -189,7 +212,7 @@ iframe {
 // media 
 @media (max-width: $switch-width1) {
     .navigation-item {
-        width: calc(100%/4);
+        // width: calc(100%/4);
     }
     .home-item {
         width: 0;
@@ -206,7 +229,7 @@ iframe {
         // width: 75%;
     }
     .navigation-item {
-        width: calc(100%/4);
+        // width: calc(100%/4);
     }
     .home-item {
         width: 0;

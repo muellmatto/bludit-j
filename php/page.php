@@ -1,75 +1,63 @@
 
     <?php
+        Theme::plugins('pageBegin');
         $content = $Page->content();
         $title = $Page->title();
-        // error_log($title);
         if ( $title == 'START' ) {
             // get content line by line (each line will be an image)
             $contentArray = explode(PHP_EOL, $content);
-            echo '<style>';
-            echo 'img { width: 100%; }';
-            echo '</style>';
-            echo '<div class="content startpage-content">';
             // add just ONE random image
+            echo '<div class="conent startpage-content">';
             echo $contentArray[array_rand($contentArray)];
             echo '</div>';
-        } elseif ($title == 'NEWS &amp; EXPOS'){
-            // maybe obsolete ....
-            // get all posts
-            $totalPublishedPosts = $dbPosts->numberPost(true);
-            $posts = buildPostsForPage(0, $totalPublishedPosts, true, false);
-            // build 2 arrays of filtered posts
-            $exhiPosts = [];
-            $newsPosts = [];
-            foreach ($posts as $Post) {
-                if (strpos($Post->tags(), 'Exhi') !== false) {
-                    $exhiPosts[] = $Post;
-                }
-                if (strpos($Post->tags(), 'News') !== false) {
-                    $newsPosts[] = $Post;
-                }
-            }
-            // now we have two arrays, one with news, one with exhibitions
-
-            // push newspage content into page
-            // echo '<div class="leftCol">';
-            // echo $content;
-            // fill in news posts
-            foreach ($newsPosts as $n) {
-                echo '<div class="workslist rosa">';
-                // echo '<div class="">';
-                echo '<a href="'.$n->permalink() .'">';
-                echo '<h3>'.$n->title().'</h3>';
-                if($n->coverImage()) {
-                    echo '<img src="'.$n->coverImage().'" alt="Cover Image">';
-                }
-                echo '</a>';
-                echo $n->content();
-                echo '</div>';
-            }
-            // echo '</div>';
-
-            // fill site with exhibitions
-            // echo '<div class="rightCol">';
-            foreach ($exhiPosts as $e) {
-                echo '<div class="workslist">';
-                // echo '<div class="">';
-                echo '<a href="'.$e->permalink() .'">';
-                echo '<h3>'.$e->title().'</h3>';
-                if($e->coverImage()) {
-                    echo '<img src="'.$e->coverImage().'" alt="Cover Image">';
-                }
-                echo '</a>';
-                echo '</div>';
-            }
-            // echo '</div>';
-
-
-
-                    echo '<div style="clear: both;"></div>';
-            echo '<div style="clear: both;"></div>';
         } else {
-            echo '<h2>'.$title.'</h2>';
+            // Returns the parent key, if the page doesn't have a parent returns FALSE
+            if ( $Page->parentKey() !== false) {
+                // we are a child!
+                $Parent = buildPage($Page->parentKey());
+                $children = $Page->parentMethod('children');
+            } else {
+                // we are parent!
+                $Parent = $Page;
+                $children = $Parent->children();
+            }
+            if ( $Page->slug() == $Parent->slug() ) {
+                $class = 'active';
+            } else {
+                $class = '';
+            }
+            echo '<a href="'.$Parent->permalink().'">';
+            echo '<h2 class="subNavigation '.$class.'">'.$Parent->title().'</h2>';
+            echo '</a>';
+            foreach ($children as $ChildKey) {
+                $Child = buildPage($Parent->slug().'/'.$ChildKey);
+                if ( $Page->slug() == $Child->slug() ) {
+                    $class = 'active';
+                } else {
+                    $class = '';
+                }
+                echo '<a href="'.$Child->permalink().'">';
+                echo '<h2 class="subNavigation '.$class.'">'.$Child->title().'</h2>';
+                echo '</a>';
+            }
+            echo '<div style="clear: both;"></div>';
+                        /*
+                        // check if page has childs or is child
+                        if ( array_key_exists( $Page->key() , $pagesParents ) || $Page->parentKey() ) {
+                            // get children if Parent or siblings if child
+                            if ($Page->parentKey()) {
+                                $ParentKey = $Page->parentKey();
+                                $children = $pagesParents[$Page->parentKey()];
+                            } else {
+                                $ParentKey = $Page->key();
+                                $children = $pagesParents[$Page->key()];
+                            }
+                            foreach( $children as $Child ) {
+                                echo '<p>'.$Child->title().'</p>';
+                            }
+                        }
+                         */
             echo '<div class="content">'.$content.'</div>';
         }
+        Theme::plugins('pageEnd');
     ?>

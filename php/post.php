@@ -1,4 +1,7 @@
 <?php
+
+        Theme::plugins('postBegin');
+
         echo '<h2>'.$Post->title().'</h2>';
         echo '<div id="workDiv" class="content">';
         echo '<em>'.$Post->description().'</em>';
@@ -45,6 +48,8 @@
         }
         echo '</div>';
 
+        Theme::plugins('postEnd');
+        
         // now add touchgestures wth hammer js!
 ?>
         <script type="text/javascript" src="<?php echo HTML_PATH_THEME_JS.'hammer.min.js' ?>"></script>

@@ -18,18 +18,17 @@
            return $b['count'] - $a['count'];
         });
 
-        echo '<h3 style="float: right;">WORKS</h3>';
         echo '<ul class="taglist">';
-        echo '<li><a href="'.$Site->url().'works">all</a></li>';
+        echo '<li class="tagItem"><a href="'.$Site->url().'works">all</a></li>';
         foreach($tagArray as $tagKey=>$fields)
         {
             // Print the parent
             if ( $fields['name'] != 'News') {
-                echo '<li><a href="'.HTML_PATH_ROOT.$filter.'/'.$fields['tagKey'].'">'.$fields['name'].' ('.$fields['count'].')</a></li>';
+                echo '<li class="tagItem"><a href="'.HTML_PATH_ROOT.$filter.'/'.$fields['tagKey'].'">'.$fields['name'].' ('.$fields['count'].')</a></li>';
             }
         }
         echo '</ul>';
-
+        echo '<div style="clear: both;></div>"';
         
         echo '<div class="worksListFrame">';
 
