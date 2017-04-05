@@ -37,6 +37,10 @@
             // list all posts
             $totalPublishedPosts = $dbPosts->numberPost(true);
             $posts = buildPostsForPage(0, $totalPublishedPosts, true, false);
+        } elseif ($Url->whereAmI() == 'tag') {
+            $tagKey = $Url->slug();
+            $totalPublishedPosts = $dbTags->countPostsByTag($tagKey);
+            $posts = buildPostsForPage(0, $totalPublishedPosts, true, $tagKey);
         }
         foreach ($posts as $Post) {
             if ( $Post->tags() != 'News' ) {
