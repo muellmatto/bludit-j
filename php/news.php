@@ -1,5 +1,5 @@
 <?php
-            echo $plugins['all']['treadmill']->get();
+            echo $treadmill->get();
 
             // get all posts
             $totalPublishedPosts = $dbPosts->numberPost(true);
