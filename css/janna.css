@@ -37,8 +37,7 @@ h3 {
   padding-right: 1.5rem; }
 
 h4 {
-  margin-top: 0;
-  display: none; }
+  margin-top: 0; }
 
 iframe {
   width: 100%; }
@@ -112,7 +111,7 @@ iframe {
 
 .workslist img {
   max-width: 100%;
-  max-height: 16rem; }
+  height: 16rem; }
 
 .content img {
   width: 50%; }

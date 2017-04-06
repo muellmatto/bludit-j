@@ -65,7 +65,7 @@ h3 {
 
 h4 {
     margin-top: 0;
-    display: none;
+    // display: none;
 }
 
 iframe {
@@ -161,7 +161,7 @@ iframe {
 
 .workslist img {
     max-width: 100%;
-    max-height: 16rem;
+    height: $workslist-height;
 }
 
 .content img {
