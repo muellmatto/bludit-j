@@ -60,12 +60,17 @@ h2 {
 
 h3 {
     padding-right: $content-padding;
+    float: left;
     // text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
 h4 {
     margin-top: 0;
     // display: none;
+}
+
+h5 {
+    float: right;
 }
 
 iframe {

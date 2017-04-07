@@ -23,10 +23,11 @@
                 echo '<div class="workslist '.$class.'">';
                 echo '<a href="'.$i->permalink() .'">';
                 echo '<h3>'.$i->title().'</h3>';
-                echo '<h5>'.$i->date().'</h5>';
                 if($i->coverImage()) {
                     echo '<img src="'.$i->coverImage().'" alt="Cover Image">';
                 }
+                echo '<h6>'.$i->description().'</h6>';
+                echo '<h5>'.$i->date().'</h5>';
                 echo '</a>';
                 echo '</div>';
             }

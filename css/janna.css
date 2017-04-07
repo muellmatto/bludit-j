@@ -34,10 +34,14 @@ h2 {
   padding: 1.5rem; }
 
 h3 {
-  padding-right: 1.5rem; }
+  padding-right: 1.5rem;
+  float: left; }
 
 h4 {
   margin-top: 0; }
+
+h5 {
+  float: right; }
 
 iframe {
   width: 100%; }
