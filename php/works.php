@@ -51,6 +51,3 @@
         echo '<div style="clear: both;"></div>';
         echo '</div>';
 ?>
-
-<div id="test">
-</div>
