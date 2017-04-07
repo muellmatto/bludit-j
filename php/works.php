@@ -19,7 +19,7 @@
         });
 
         echo '<ul class="taglist">';
-        echo '<li class="tagItem"><a href="'.$Site->url().'works">all ('.count($APL->getPostsByBlacklist(['News'])).')</a></li>';
+        echo '<li class="tagItem"><a href="'.$Site->url().'works">all ('.count($APL->getPostsByBlackList(['News'])).')</a></li>';
         foreach($tagArray as $tagKey=>$fields)
         {
             // Print the parent
@@ -33,13 +33,15 @@
         echo '<div class="worksListFrame">';
 
         if ($Url->whereAmI() == 'blog') {
-            $posts = $APL->getPostsByBlacklist(['News']);
+            $posts = $APL->getPostsByBlackList(['News']);
+            $toTag = '';
         } elseif ($Url->whereAmI() == 'tag') {
             $posts = $APL->getPostsByTagList([$Url->slug()]);
+            $toTag = '?fromTag='.$Url->slug();
         }
         foreach ($posts as $Post) {
             echo '<div class="workslist">';
-            echo '<a href="'.$Post->permalink() .'">';
+            echo '<a href="'.$Post->permalink().$toTag.'">';
             if($Post->coverImage()) {
                 echo '<img src="'.$Post->coverImage().'" alt="Cover Image">';
             } else {
