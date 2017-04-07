@@ -19,8 +19,7 @@
         });
 
         echo '<ul class="taglist">';
-        $totalPublishedPosts = $dbPosts->numberPost(true);
-        echo '<li class="tagItem"><a href="'.$Site->url().'works">all ('.$totalPublishedPosts.')</a></li>';
+        echo '<li class="tagItem"><a href="'.$Site->url().'works">all ('.count($APL->getPostsByBlacklist(['News'])).')</a></li>';
         foreach($tagArray as $tagKey=>$fields)
         {
             // Print the parent
@@ -34,26 +33,20 @@
         echo '<div class="worksListFrame">';
 
         if ($Url->whereAmI() == 'blog') {
-            // list all posts
-            $totalPublishedPosts = $dbPosts->numberPost(true);
-            $posts = buildPostsForPage(0, $totalPublishedPosts, true, false);
+            $posts = $APL->getPostsByBlacklist(['News']);
         } elseif ($Url->whereAmI() == 'tag') {
-            $tagKey = $Url->slug();
-            $totalPublishedPosts = $dbTags->countPostsByTag($tagKey);
-            $posts = buildPostsForPage(0, $totalPublishedPosts, true, $tagKey);
+            $posts = $APL->getPostsByTagList([$Url->slug()]);
         }
         foreach ($posts as $Post) {
-            if ( $Post->tags() != 'News' ) {
-                echo '<div class="workslist">';
-                echo '<a href="'.$Post->permalink() .'">';
-                if($Post->coverImage()) {
-                    echo '<img src="'.$Post->coverImage().'" alt="Cover Image">';
-                } else {
-                    echo '<h4>'.$Post->title().'</h4>';
-                }
-                echo '</a>';
-                echo '</div>';
+            echo '<div class="workslist">';
+            echo '<a href="'.$Post->permalink() .'">';
+            if($Post->coverImage()) {
+                echo '<img src="'.$Post->coverImage().'" alt="Cover Image">';
+            } else {
+                echo '<h4>'.$Post->title().'</h4>';
             }
+            echo '</a>';
+            echo '</div>';
         }
         echo '<div style="clear: both;"></div>';
         echo '</div>';

@@ -1,19 +1,8 @@
 <?php
             echo $treadmill->get();
 
-            // get all posts
-            $totalPublishedPosts = $dbPosts->numberPost(true);
-            $posts = buildPostsForPage(0, $totalPublishedPosts, true, false);
+            $newsExhiPosts = $APL->getPostsByTaglist(['News', 'Exhib']);
             
-            // build a list of filtered posts
-            $newsExhiPosts = [];
-            foreach ($posts as $Post) {
-                if ( (strpos($Post->tags(), 'Exhi') !== false) || (strpos($Post->tags(), 'News') !== false)) {
-                    $newsExhiPosts[] = $Post;
-                }
-            }
-            
-            // now we have a filtered list with Posts of both tags
             foreach ($newsExhiPosts as $i) {
                 if ( strpos($i->tags(), 'News') !== false ) {
                     $class = "news";
