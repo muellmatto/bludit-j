@@ -17,6 +17,24 @@
             <!-- nav -->
             <div class="navigation-container">
 
+<style>
+
+   .title {   
+    animation-name: spin;
+    animation-duration: 100000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    position: fixed;
+  }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  </style>
+<p class="title">janna<br>banning</p>
+
+
+
                 <?php
                     $parents = $pagesParents[NO_PARENT_CHAR];
                     foreach($parents as $Parent):
