@@ -151,7 +151,7 @@ iframe {
 }
 
 .workslist {
-    // height: $workslist-height;
+    // max-height: $workslist-height;
     box-sizing: border-box;
     padding: calc(#{$content-padding} /4);
     margin: calc(#{$content-padding} /4);
@@ -160,8 +160,8 @@ iframe {
 }
 
 .workslist img {
-    max-width: 100%;
-    height: $workslist-height;
+    // max-width: 100%;
+    max-height: $workslist-height;
 }
 
 .content img {
