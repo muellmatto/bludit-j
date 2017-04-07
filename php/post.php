@@ -54,11 +54,15 @@
 ?>
         <script type="text/javascript" src="<?php echo HTML_PATH_THEME_JS.'hammer.min.js' ?>"></script>
         <script>
+            /*
             var workDiv = document.getElementById('workDiv');
 
             // create a simple instance
             // by default, it only adds horizontal recognizers
             var mc = new Hammer(workDiv);
+            
+            // der rotz läuf nicht wie er soll, viel zu empfindlich
+            mc.get('swipe').set({ threshold: 10000, velocity: 30});
 
             // listen to events...
             mc.on("panleft panright tap press", function(ev) {
@@ -66,4 +70,5 @@
                 else if (ev.type == 'panright' ) { document.location.href = "<?php echo $prevPath ?>";}
                 // myElement.textContent = ev.type +" gesture detected.";
             });
+            */
         </script>
