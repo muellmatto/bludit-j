@@ -21,42 +21,33 @@
                 $Parent = $Page;
                 $children = $Parent->children();
             }
-            if ( $Page->slug() == $Parent->slug() ) {
-                $class = 'active';
-            } else {
-                $class = '';
-            }
-            echo '<a href="'.$Parent->permalink().'">';
-            echo '<h2 class="subNavigation '.$class.'">'.$Parent->title().'</h2>';
-            echo '</a>';
-            foreach ($children as $ChildKey) {
-                $Child = buildPage($Parent->slug().'/'.$ChildKey);
-                if ( $Page->slug() == $Child->slug() ) {
+
+            // add subpage navigation if necessary
+            if ($children) {
+                // at first add a parent link
+                if ( $Page->slug() == $Parent->slug() ) {
                     $class = 'active';
                 } else {
                     $class = '';
                 }
-                echo '<a href="'.$Child->permalink().'">';
-                echo '<h2 class="subNavigation '.$class.'">'.$Child->title().'</h2>';
+                echo '<a href="'.$Parent->permalink().'">';
+                echo '<h2 class="subNavigation '.$class.'">'.$Parent->title().'</h2>';
                 echo '</a>';
+                // now add a link for every child
+                foreach ($children as $ChildKey) {
+                    $Child = buildPage($Parent->slug().'/'.$ChildKey);
+                    if ( $Page->slug() == $Child->slug() ) {
+                        $class = 'active';
+                    } else {
+                        $class = '';
+                    }
+                    echo '<a href="'.$Child->permalink().'">';
+                    echo '<h2 class="subNavigation '.$class.'">'.$Child->title().'</h2>';
+                    echo '</a>';
+                }
+                echo '<div style="clear: both;"></div>';
             }
-            echo '<div style="clear: both;"></div>';
-                        /*
-                        // check if page has childs or is child
-                        if ( array_key_exists( $Page->key() , $pagesParents ) || $Page->parentKey() ) {
-                            // get children if Parent or siblings if child
-                            if ($Page->parentKey()) {
-                                $ParentKey = $Page->parentKey();
-                                $children = $pagesParents[$Page->parentKey()];
-                            } else {
-                                $ParentKey = $Page->key();
-                                $children = $pagesParents[$Page->key()];
-                            }
-                            foreach( $children as $Child ) {
-                                echo '<p>'.$Child->title().'</p>';
-                            }
-                        }
-                         */
+            // add content
             echo '<div class="content">'.$content.'</div>';
         }
         Theme::plugins('pageEnd');
