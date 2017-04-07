@@ -54,30 +54,3 @@
 
 <div id="test">
 </div>
-
-<script>
-    function listWorks () {
-        var worksList = this.responseText;
-        console.log(worksList[0]);
-        // getWorkItem(worksList[0].key);
-    }
-
-    function showWork() {
-        var work = this.responseText;
-        console.log(work);
-    }
-
-    function getWorkItem (work) {
-        var req = new XMLHttpRequest();
-        req.addEventListener("load", showWork);
-        req.open("GET", "<?php $Site->url()?>api/show/post/" + work);
-        req.send();
-    }
-
-    function getWorksList () {
-        var req = new XMLHttpRequest();
-        req.addEventListener("load", listWorks);
-        req.open("GET", "http://localhost:8000/api/show/all/posts/93d779a0a7b653fa81dcc81ec076c557");
-        req.send();
-    }
-</script>
