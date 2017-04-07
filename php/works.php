@@ -19,8 +19,7 @@
         });
 
         echo '<ul class="taglist">';
-        $totalPublishedPosts = $dbPosts->numberPost(true);
-        echo '<li class="tagItem"><a href="'.$Site->url().'works">all ('.$totalPublishedPosts.')</a></li>';
+        echo '<li class="tagItem"><a href="'.$Site->url().'works">all ('.count($APL->getPostsByBlackList(['News'])).')</a></li>';
         foreach($tagArray as $tagKey=>$fields)
         {
             // Print the parent
@@ -34,57 +33,23 @@
         echo '<div class="worksListFrame">';
 
         if ($Url->whereAmI() == 'blog') {
-            // list all posts
-            $totalPublishedPosts = $dbPosts->numberPost(true);
-            $posts = buildPostsForPage(0, $totalPublishedPosts, true, false);
+            $posts = $APL->getPostsByBlackList(['News']);
+            $toTag = '';
         } elseif ($Url->whereAmI() == 'tag') {
-            $tagKey = $Url->slug();
-            $totalPublishedPosts = $dbTags->countPostsByTag($tagKey);
-            $posts = buildPostsForPage(0, $totalPublishedPosts, true, $tagKey);
+            $posts = $APL->getPostsByTagList([$Url->slug()]);
+            $toTag = '?fromTag='.$Url->slug();
         }
         foreach ($posts as $Post) {
-            if ( $Post->tags() != 'News' ) {
-                echo '<div class="workslist">';
-                echo '<a href="'.$Post->permalink() .'">';
-                if($Post->coverImage()) {
-                    echo '<img src="'.$Post->coverImage().'" alt="Cover Image">';
-                } else {
-                    echo '<h4>'.$Post->title().'</h4>';
-                }
-                echo '</a>';
-                echo '</div>';
+            echo '<div class="workslist">';
+            echo '<a href="'.$Post->permalink().$toTag.'">';
+            if($Post->coverImage()) {
+                echo '<img src="'.$Post->coverImage().'" alt="Cover Image">';
+            } else {
+                echo '<h4>'.$Post->title().'</h4>';
             }
+            echo '</a>';
+            echo '</div>';
         }
         echo '<div style="clear: both;"></div>';
         echo '</div>';
 ?>
-
-<div id="test">
-</div>
-
-<script>
-    function listWorks () {
-        var worksList = this.responseText;
-        console.log(worksList[0]);
-        // getWorkItem(worksList[0].key);
-    }
-
-    function showWork() {
-        var work = this.responseText;
-        console.log(work);
-    }
-
-    function getWorkItem (work) {
-        var req = new XMLHttpRequest();
-        req.addEventListener("load", showWork);
-        req.open("GET", "<?php $Site->url()?>api/show/post/" + work);
-        req.send();
-    }
-
-    function getWorksList () {
-        var req = new XMLHttpRequest();
-        req.addEventListener("load", listWorks);
-        req.open("GET", "http://localhost:8000/api/show/all/posts/93d779a0a7b653fa81dcc81ec076c557");
-        req.send();
-    }
-</script>

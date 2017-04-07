@@ -2,50 +2,29 @@
 
         Theme::plugins('postBegin');
 
+        if ( !(empty( $_GET['fromTag'] )) ) {
+            $fromTag = $_GET['fromTag'];
+            echo '<h3>'.$fromTag.'</h3>';
+        }
         echo '<h2>'.$Post->title().'</h2>';
         echo '<div id="workDiv" class="content">';
         echo '<em>'.$Post->description().'</em>';
         echo '<br>';
 	    echo $Post->content();
-        //$currentTag = explode(',' , $Post->tags())[0];
-        //echo "<em>$currentTag</em>";
-        //echo "<em>".$Post->tags()."</em>";
         echo '</div>';
 
-
-        // now we need next und prev post!
+        // show Prev / Next post-links
         echo '<div class="content">';
-
-        // lets start with a list of all posts
-        $totalPublishedPosts = $dbPosts->numberPost(true);
-        $posts = buildPostsForPage(0, $totalPublishedPosts, true, false);
-
-        // lets filter out news only
-        $filteredPosts = [];
-        foreach ($posts as $x) {
-            if ( $x->tags() != 'News' ) {
-                $filteredPosts[] = $x;
+            // are we browsing on specific tag?
+            if (isset($fromTag)) {
+                echo '<a style="float: right;" href="'.$APL->getNextPostByTagList([$fromTag])->permalink().'?fromTag='.$fromTag.'">NEXT</a>';
+                echo '<a style="float: left;" href="'.$APL->getPrevPostByTagList([$fromTag])->permalink().'?fromTag='.$fromTag.'">PREV</a>';
+            // are we browsing all warks?
+            } elseif ( $Post->tags() != 'News' ) {
+                echo '<a style="float: right;" href="'.$APL->getNextPostByBlackList(['News'])->permalink().'">NEXT</a>';
+                echo '<a style="float: left;" href="'.$APL->getPrevPostByBlackList(['News'])->permalink().'">PREV</a>';
             }
-        }
-
-        // find post in list and get nextPath und prevPath
-        foreach ($filteredPosts as $index=>$p) {
-            if ($p->title() == $Post->title()) {
-                if ($index + 1 > count($filteredPosts) - 1 ) {
-                    $nextPath = $filteredPosts[0]->permalink();
-                } else {
-                    $nextPath = $filteredPosts[$index + 1]->permalink();
-                }
-                if ( $index == 0) {
-                    $prevPath = $filteredPosts[count($filteredPosts) - 1]->permalink();
-                } else {
-                    $prevPath = $filteredPosts[$index - 1]->permalink();
-                }
-                echo '<a style="float: right;" href="'.$nextPath.'">NEXT</a>';
-                echo '<a style="float: left;" href="'.$prevPath.'">PREV</a>';
-                echo '<div style="clear: both;"></div>';
-            }
-        }
+            echo '<div style="clear: both;"></div>';
         echo '</div>';
 
         Theme::plugins('postEnd');
