@@ -166,7 +166,6 @@ iframe {
 
 .workslist img {
     max-width: 100%;
-    max-height: $workslist-height;
 }
 
 .content img {
@@ -210,6 +209,9 @@ iframe {
     .workslist {
         float: left;
     }
+    .workslist img {
+        height: $workslist-height;
+    }
     .news {
         // width: calc(100%/2);
     }
@@ -225,6 +227,9 @@ iframe {
     }
     .workslist {
         float: left;
+    }
+    .workslist img {
+        max-height: $workslist-height;
     }
 
 }
@@ -250,5 +255,8 @@ iframe {
     }
     .workslist {
         width: 100%;
+    }
+    .workslist img {
+        max-height: $workslist-height;
     }
 }
