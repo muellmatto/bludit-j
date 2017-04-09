@@ -114,6 +114,7 @@ iframe {
   overflow: hidden; }
 
 .workslist img {
+  max-width: 100%;
   max-height: 16rem; }
 
 .content img {
