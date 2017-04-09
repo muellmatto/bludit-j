@@ -7,11 +7,6 @@
             echo '<h3>'.$fromTag.'</h3>';
         }
         echo '<h2>'.$Post->title().'</h2>';
-        echo '<div id="workDiv" class="content">';
-        echo '<em>'.$Post->description().'</em>';
-        echo '<br>';
-	    echo $Post->content();
-        echo '</div>';
 
         // show Prev / Next post-links
         echo '<div class="content">';
@@ -25,6 +20,12 @@
                 echo '<a style="float: left;" href="'.$APL->getPrevPostByBlackList(['News'])->permalink().'">PREV</a>';
             }
             echo '<div style="clear: both;"></div>';
+        echo '</div>';
+
+        echo '<div id="workDiv" class="content">';
+        echo '<em>'.$Post->description().'</em>';
+        echo '<br>';
+	    echo $Post->content();
         echo '</div>';
 
         Theme::plugins('postEnd');
