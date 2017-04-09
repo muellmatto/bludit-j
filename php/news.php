@@ -13,7 +13,7 @@
                 echo '<a href="'.$i->permalink() .'">';
                 echo '<h3>'.$i->title().'</h3>';
                 if($i->coverImage()) {
-                    echo '<img src="'.$i->coverImage().'" alt="Cover Image">';
+                    echo '<img src="'.$i->coverImage().'&w=300" alt="Cover Image">';
                 }
                 echo '<h6>'.$i->description().'</h6>';
                 echo '<h5>'.$i->date().'</h5>';
