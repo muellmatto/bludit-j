@@ -50,4 +50,5 @@
                 // myElement.textContent = ev.type +" gesture detected.";
             });
             */
+            addOnClickYalb();
         </script>

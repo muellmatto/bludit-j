@@ -5,8 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?php echo $Site->title() ?></title>
         <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
-        <?php Theme::css('normalize.css') ?>
-        <?php Theme::css('janna.css') ?>
+        <?php Theme::css('normalize.css'); ?>
+        <?php Theme::css('yalb.css'); ?>
+        <?php Theme::css('janna.css'); ?>
+        <?php Theme::javascript('yalb.js'); ?>
         <?php Theme::javascript('janna.js') ?>
         <?php Theme::plugins('siteHead'); ?>
     </head>
