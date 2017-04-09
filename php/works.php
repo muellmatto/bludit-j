@@ -43,7 +43,7 @@
             echo '<div class="workslist">';
             echo '<a href="'.$Post->permalink().$toTag.'">';
             if($Post->coverImage()) {
-                echo '<img src="'.$Post->coverImage().'" alt="Cover Image">';
+                echo '<img src="'.$Post->coverImage().'&w=300" alt="Cover Image">';
             } else {
                 echo '<h4>'.$Post->title().'</h4>';
             }
