@@ -6,9 +6,11 @@
         <title><?php echo $Site->title() ?></title>
         <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
         <?php Theme::css('normalize.css'); ?>
-        <?php Theme::css('yalb.css'); ?>
+        <?php Theme::css('photoswipe.css'); ?>
+        <?php Theme::css('default-skin/default-skin.css'); ?>
         <?php Theme::css('janna.css'); ?>
-        <?php Theme::javascript('yalb.js'); ?>
+        <?php Theme::javascript('photoswipe.min.js'); ?>
+        <?php Theme::javascript('photoswipe-ui-default.min.js'); ?>
         <?php Theme::javascript('janna.js') ?>
         <?php Theme::plugins('siteHead'); ?>
     </head>

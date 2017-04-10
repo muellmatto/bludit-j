@@ -30,6 +30,7 @@
         Theme::plugins('postEnd');
         
         // now add touchgestures wth hammer js!
+                        include(THEME_DIR_PHP.'photoswipe.php');
 ?>
         <script type="text/javascript" src="<?php echo HTML_PATH_THEME_JS.'hammer.min.js' ?>"></script>
         <script>
@@ -50,5 +51,4 @@
                 // myElement.textContent = ev.type +" gesture detected.";
             });
             */
-            addOnClickYalb();
         </script>
