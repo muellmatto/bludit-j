@@ -102,7 +102,7 @@
                                     src: "'.$imgSrc.'",
                                     w: '.$width.',
                                     h: '.$height.',
-                                    title: "'.$imgAlt.'"
+                                    title: `'.$imgAlt.'`
                                 });
                 ';
             }
