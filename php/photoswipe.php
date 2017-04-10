@@ -115,7 +115,8 @@
 
         var options =   {
                             index: i,
-                            shareEl: false
+                            shareEl: false,
+                            zoomEl: false
                         };
         return function() {
             var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, list, options);
