@@ -7,7 +7,10 @@
         <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
         <?php Theme::favicon('favicon.ico'); ?>
         <?php Theme::css('normalize.css') ?>
+        <?php Theme::css('simpleLightbox.css') ?>
         <?php Theme::css('janna.css') ?>
+        <?php Theme::javascript('jquery-3.2.0.min.js') ?>
+        <?php Theme::javascript('simpleLightbox.js') ?>
         <?php Theme::javascript('janna.js') ?>
         <?php Theme::plugins('siteHead'); ?>
     </head>
