@@ -165,13 +165,9 @@ iframe {
 }
 
 .workslist img {
-    // max-width: 100%;
-    max-height: $workslist-height;
+    max-width: 100%;
 }
 
-.content img {
-    width: 50%;
-}
 
 .startpage-content img {
     width: 100%;
@@ -210,6 +206,12 @@ iframe {
     .workslist {
         float: left;
     }
+    .workslist img {
+        height: $workslist-height;
+    }
+    .content img {
+        width: 50%;
+    }
     .news {
         // width: calc(100%/2);
     }
@@ -225,6 +227,12 @@ iframe {
     }
     .workslist {
         float: left;
+    }
+    .workslist img {
+        max-height: $workslist-height;
+    }
+    .content img {
+        width: 100%;
     }
 
 }
@@ -249,6 +257,12 @@ iframe {
         height: 40%;
     }
     .workslist {
+        width: 100%;
+    }
+    .workslist img {
+        max-height: $workslist-height;
+    }
+    .content img {
         width: 100%;
     }
 }
