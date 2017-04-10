@@ -51,4 +51,5 @@
                 // myElement.textContent = ev.type +" gesture detected.";
             });
             */
+            addOnClickLightbox();
         </script>
