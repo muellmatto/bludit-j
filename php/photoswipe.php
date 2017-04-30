@@ -88,6 +88,9 @@
             foreach ($nodelist as $node) {
                 $imgSrc = $node->attributes->getNamedItem('src')->nodeValue;
                 $imgAlt = $node->attributes->getNamedItem('alt')->nodeValue;
+                if ($imgAlt == 'Bildbeschreibung') {
+                    $imgAlt = "";
+                }
                 list($width, $height) = getimagesize(PATH_ROOT.$imgSrc);
                 if ($width > $height) {
                     $height = intval($height * 1000 / $width);
