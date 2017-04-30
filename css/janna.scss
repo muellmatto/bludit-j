@@ -46,6 +46,11 @@ em {
     font-style: normal;
 }
 
+object {
+    width: 100%;
+    height: 50rem
+}
+
 @keyframes blinker {
     50% { opacity:0; }
 }
@@ -208,6 +213,16 @@ iframe {
     }
     .workslist img {
         height: $workslist-height;
+    }
+    .workslist-text {
+        background: rgba(240, 220, 220, 1);
+        color: white;
+        padding-right: 10rem;
+        padding-top: 1rem;
+        padding-left: 1rem;
+        margin: 0;
+        height: 16rem;
+        box-sizing: border-box;
     }
     .content img {
         width: 50%;
