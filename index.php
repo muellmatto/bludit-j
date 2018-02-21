@@ -14,6 +14,16 @@
         <?php Theme::javascript('photoswipe-ui-default.min.js'); ?>
         <?php Theme::javascript('janna.js') ?>
         <?php Theme::plugins('siteHead'); ?>
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-98289036-1', 'auto');
+          ga('send', 'pageview');
+
+        </script>
     </head>
     <body>
         <?php Theme::plugins('siteBodyBegin') ?>
@@ -22,22 +32,22 @@
             <!-- nav -->
             <div class="navigation-container">
 
-<style>
-
-   .title {   
-    animation-name: spin;
-    animation-duration: 100000ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    position: fixed;
-  }
-  @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-  </style>
-<p class="title">janna<br>banning</p>
-
+                <style>
+                    .title {   
+                        animation-name: spin;
+                        animation-duration: 100000ms;
+                        animation-iteration-count: infinite;
+                        animation-timing-function: linear;
+                        position: fixed;
+                    }
+                    @keyframes spin {
+                        from { transform: rotate(0deg); }
+                        to { transform: rotate(360deg); }
+                    }
+                </style>
+                    <a href="<?php echo $Site->url();?>">
+                    <p class="title">janna<br>banning</p>
+                </a>
 
 
                 <?php
