@@ -10,7 +10,7 @@
             echo '<div class="conent startpage-content">';
             echo $contentArray[array_rand($contentArray)];
             echo '</div>';
-        } elseif( $title == 'sub') {
+        } elseif( $title == 'match') {
             include(THEME_DIR_PHP.'test.php');
         } else {
             // Returns the parent key, if the page doesn't have a parent returns FALSE
