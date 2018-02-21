@@ -225,7 +225,7 @@ iframe {
         box-sizing: border-box;
     }
     .content img {
-        width: 50%;
+        max-width: 50%;
     }
     .news {
         // width: calc(100%/2);
@@ -247,7 +247,7 @@ iframe {
         max-height: $workslist-height;
     }
     .content img {
-        width: 100%;
+        max-width: 100%;
     }
 
 }
@@ -278,6 +278,6 @@ iframe {
         max-height: $workslist-height;
     }
     .content img {
-        width: 100%;
+        max-width: 100%;
     }
 }
