@@ -2,9 +2,14 @@
     // get images
     $html = $Post->content();
     $doc = new DOMDocument();
-    $doc->loadHTML($html); // loads your html
+        // libxml_use_internal_errors(true);   // workaround for custom tags -> ignore warnings
+        // loads your html
+        // $doc->loadHTML($html);
+        // libxml_clear_errors();  // workaround for custom tags -> ignore warnings
+    @$doc->loadHTML($html); //shorter -> make use of phps error control operator '@'
     $xpath = new DOMXPath($doc);
-    $nodelist = $xpath->query("//img"); // find your image
+    // find your image
+    $nodelist = $xpath->query("//img");
     // prepare photoswipe dom
 ?>
 
