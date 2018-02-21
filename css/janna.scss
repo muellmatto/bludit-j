@@ -136,6 +136,10 @@ iframe {
 
 .startpage-content {
     padding: $startpage-padding;
+    img {
+        max-width: 100%;
+        max-height: calc(100vh - 5rem);
+    }
 }
 
 
@@ -171,11 +175,6 @@ iframe {
 
 .workslist img {
     max-width: 100%;
-}
-
-
-.startpage-content img {
-    width: 100%;
 }
 
 .news {

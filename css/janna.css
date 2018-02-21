@@ -92,6 +92,9 @@ iframe {
 
 .startpage-content {
   padding: 0.1rem; }
+  .startpage-content img {
+    max-width: 100%;
+    max-height: calc(100vh - 5rem); }
 
 .leftCol, .rightCol {
   border-bottom-style: solid;
@@ -118,9 +121,6 @@ iframe {
 
 .workslist img {
   max-width: 100%; }
-
-.startpage-content img {
-  width: 100%; }
 
 .news {
   background-color: #ff005e; }
