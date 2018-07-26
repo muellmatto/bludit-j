@@ -4,26 +4,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?php echo $Site->title() ?></title>
-        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
         <?php Theme::favicon('favicon.ico'); ?>
-        <?php Theme::css('normalize.css'); ?>
-        <?php Theme::css('photoswipe.css'); ?>
-        <?php Theme::css('default-skin/default-skin.css'); ?>
         <?php Theme::css('janna.css'); ?>
-        <?php Theme::javascript('photoswipe.min.js'); ?>
-        <?php Theme::javascript('photoswipe-ui-default.min.js'); ?>
-        <?php Theme::javascript('janna.js') ?>
+        <?php // Theme::javascript('janna.js') ?>
         <?php Theme::plugins('siteHead'); ?>
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-          ga('create', 'UA-98289036-1', 'auto');
-          ga('send', 'pageview');
-
-        </script>
     </head>
     <body>
         <?php Theme::plugins('siteBodyBegin') ?>
@@ -45,9 +29,12 @@
                         to { transform: rotate(360deg); }
                     }
                 </style>
+                <div class="home-item">
                     <a href="<?php echo $Site->url();?>">
-                    <p class="title">janna<br>banning</p>
-                </a>
+                        JANNA BANNING
+                    </a>
+                </div>
+                <div style="clear: right;"></div>
 
 
                 <?php
@@ -62,7 +49,7 @@
                 ?>
                         <div class="navigation-item">
                             <a href="<?php echo $Parent->permalink() ?>">
-                            <div class="navigation-content <?php echo $class ?>">
+                            <div class="<?php echo $class ?>">
                                     <?php echo $Parent->title(); ?>
                                 </div>
                             </a>
@@ -113,6 +100,10 @@
         </div>
         
         <?php Theme::plugins('siteBodyEnd') ?>
+        <?php Theme::css('photoswipe.css'); ?>
+        <?php Theme::css('default-skin/default-skin.css'); ?>
+        <?php Theme::javascript('photoswipe.min.js'); ?>
+        <?php Theme::javascript('photoswipe-ui-default.min.js'); ?>
 
     </body>
 </html>
