@@ -1,9 +1,160 @@
+/* @media min-width */
+/* colors */
+@font-face {
+  font-family: 'Josefin Sans';
+  src: url("../fonts/JosefinSans-Light.ttf") format("truetype"); }
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; }
+
 body {
-  font-family: 'Josefin Sans', sans-serif; }
+  margin: 0; }
+
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
+  display: block; }
+
+audio, canvas, progress, video {
+  display: inline-block; }
+
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+progress {
+  vertical-align: baseline; }
+
+template, [hidden] {
+  display: none; }
+
+a {
+  background-color: transparent; }
+  a:active, a:hover {
+    outline-width: 0; }
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted; }
+
+b, strong {
+  font-weight: inherit; }
+
+b, strong {
+  font-weight: bolder; }
+
+dfn {
+  font-style: italic; }
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+mark {
+  background-color: #ff0;
+  color: #000; }
+
+small {
+  font-size: 80%; }
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sub {
+  bottom: -0.25em; }
+
+sup {
+  top: -0.5em; }
+
+img {
+  border-style: none; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+code, kbd, pre, samp {
+  font-family: monospace, monospace;
+  font-size: 1em; }
+
+figure {
+  margin: 1em 40px; }
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible; }
+
+button, input, select, textarea {
+  font: inherit; }
+
+optgroup {
+  font-weight: bold; }
+
+button, input, select {
+  overflow: visible; }
+
+button, input, select, textarea {
+  margin: 0; }
+
+button, select {
+  text-transform: none; }
+
+button, [type="button"], [type="reset"], [type="submit"] {
+  cursor: pointer; }
+
+[disabled] {
+  cursor: default; }
+
+button, html [type="button"], [type="reset"], [type="submit"] {
+  -webkit-appearance: button; }
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+button:-moz-focusring, input:-moz-focusring {
+  outline: 1px dotted ButtonText; }
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+legend {
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal; }
+
+textarea {
+  overflow: auto; }
+
+[type="checkbox"], [type="radio"] {
+  box-sizing: border-box;
+  padding: 0; }
+
+[type="number"]::-webkit-inner-spin-button, [type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+[type="search"] {
+  -webkit-appearance: textfield; }
+  [type="search"]::-webkit-search-cancel-button, [type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none; }
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  line-height: 1.4rem;
+  font-weight: 300;
+  color: #463246; }
 
 a {
   text-decoration: none;
-  color: black; }
+  color: inherit; }
 
 img {
   box-sizing: border-box;
@@ -13,10 +164,21 @@ img {
 p {
   margin-top: 0;
   padding-top: 0.5rem; }
+  p a {
+    border-bottom-width: 0.1rem;
+    border-bottom-style: solid;
+    border-bottom-color: #f0dcdc;
+    box-shadow: inset 0 -0.4rem 0 #f0dcdc;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    word-wrap: break-word; }
+    p a:hover {
+      background-color: #f0dcdc; }
 
 h1 {
   color: red;
-  animation: blinker 1s linear infinite; }
+  animation: blinker 1s linear infinite;
+  line-height: 2.4rem; }
 
 em {
   animation: blinker 1s linear infinite;
@@ -30,14 +192,18 @@ object {
   50% {
     opacity: 0; } }
 h2 {
+  /* underline headlines */
+  font-weight: inherit;
+  font-size: 2rem;
+  padding: 0;
+  margin: 1.5rem;
+  display: inline-block;
+  border-bottom-width: 0.1rem;
   border-bottom-style: solid;
-  border-right-style: solid;
-  border-width: 0rem;
-  margin: 0;
-  padding: 1.5rem; }
+  line-height: 2.4rem; }
 
 h3 {
-  padding-right: 1.5rem;
+  padding-right: 0.5rem;
   float: left; }
 
 h4 {
@@ -53,29 +219,20 @@ iframe {
   max-width: 70rem;
   margin: auto;
   margin-top: 1rem;
-  border-top-style: solid;
-  border-left-style: solid;
-  border-width: 0rem;
   box-sizing: border-box;
   overflow: hidden; }
 
+.navigation-container {
+  font-size: 120%; }
+
 .home-item, .navigation-item {
-  height: 3.5rem;
   float: right;
-  border-bottom-style: solid;
-  border-right-style: solid;
-  border-width: 0rem;
   box-sizing: border-box;
   padding: 0.5rem; }
 
 .home-item {
-  float: left; }
-
-.navigation-content {
-  height: 100%;
-  text-align: center;
-  padding: 0.2rem;
-  box-sizing: border-box; }
+  float: left;
+  margin-right: 1rem; }
 
 .subNavigation {
   float: left; }
@@ -84,39 +241,31 @@ iframe {
   text-decoration: line-through; }
 
 .worksListFrame, .content {
-  border-right-style: solid;
-  border-bottom-style: solid;
-  border-width: 0rem;
   box-sizing: border-box;
-  padding: 1.5rem; }
+  padding: 0.5rem; }
 
-.startpage-content {
-  padding: 0.1rem; }
-  .startpage-content img {
-    max-width: 100%;
-    max-height: calc(100vh - 5rem); }
+.startpage-content img {
+  max-width: 100%;
+  max-height: calc(100vh - 5rem); }
 
 .leftCol, .rightCol {
-  border-bottom-style: solid;
-  border-right-style: solid;
-  border-width: 0rem;
   box-sizing: border-box;
   min-height: 16rem;
-  padding: 1.5rem; }
+  padding: 0.5rem; }
 
 .taglist {
   margin: 0;
+  padding: 0.5rem;
   list-style-type: none; }
 
 .tagItem {
-  color: red;
-  padding-right: 0.5rem;
+  padding: 0.5rem;
   float: left; }
 
 .workslist {
   box-sizing: border-box;
-  padding: calc(1.5rem /4);
-  margin: calc(1.5rem /4);
+  padding: calc(0.5rem /4);
+  margin: calc(0.5rem /4);
   overflow: hidden; }
 
 .workslist img {
@@ -160,10 +309,6 @@ iframe {
   .content img {
     max-width: 50%; } }
 @media (max-width: 40rem) {
-  .home-item {
-    width: 0;
-    display: none; }
-
   .workslist {
     float: left; }
 
@@ -173,10 +318,6 @@ iframe {
   .content img {
     max-width: 100%; } }
 @media (max-width: 20rem) {
-  .home-item {
-    width: 0;
-    display: none; }
-
   .leftCol {
     width: 100%;
     height: 30%; }

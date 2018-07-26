@@ -1,44 +1,61 @@
-$border-width: 0.2rem;
-$border-width: 0rem;
-$content-padding: 1.5rem;
-$startpage-padding: 0.1rem;
+$content-padding: 0.5rem;
 $workslist-height: 16rem;
 $maxwidth: 70rem;
-$navigation-height: 3.5rem;
+
+/* @media min-width */
 $switch-width1: 40rem;
 $switch-width2: 20rem;
 
+/* colors */
+$accent_color: rgba(240, 220, 220, 1);
+$font_color: rgb(70,50,70);
+
+@font-face {
+    font-family: 'Josefin Sans';
+    src: url('../fonts/JosefinSans-Light.ttf') format('truetype');
+}
+
+@import "normalize";
+
 body {
-    // font-family: 'PT Sans Narrow', sans-serif;
-    // font-family: 'Raleway', sans-serif;
-    // font-family: 'Open Sans Condensed', sans-serif;
-    // font-family: 'Quicksand', sans-serif;
-    // font-family: 'Nunito', sans-serif;
     font-family: 'Josefin Sans', sans-serif;
-    // line-height: 1.1rem;
-    // margin-top: 1rem;
+    line-height: 1.4rem;
+    font-weight: 300;
+    color: $font_color;
 }
 
 a {
     text-decoration: none;
-    color: black;
+    color: inherit;
 }
 
 img {
     box-sizing: border-box;
     padding: 0.1rem;
     display: block;
-    // max-height: 100%;
 }
 
 p {
     margin-top: 0;
     padding-top: 0.5rem;
+    a {
+        border-bottom-width: 0.1rem;
+        border-bottom-style: solid;
+        border-bottom-color: $accent_color;
+        box-shadow: inset 0 -0.4rem 0 $accent_color;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        word-wrap: break-word;
+        &:hover {
+            background-color: $accent_color;
+        }
+    }
 }
 
 h1 {
     color: red;
     animation: blinker 1s linear infinite;
+    line-height: 2.4rem;
 }
 
 em {
@@ -56,11 +73,15 @@ object {
 }
 
 h2 {
+    /* underline headlines */
+    font-weight: inherit;
+    font-size: 2rem;
+    padding: 0;
+    margin: 1.5rem;
+    display: inline-block;
+    border-bottom-width: 0.1rem;
     border-bottom-style: solid;
-    border-right-style: solid;
-    border-width: $border-width;
-    margin: 0;
-    padding: $content-padding;
+    line-height: 2.4rem;
 }
 
 h3 {
@@ -86,56 +107,37 @@ iframe {
     max-width: $maxwidth;
     margin: auto;
     margin-top: 1rem;
-    border-top-style: solid;
-    border-left-style: solid;
-    border-width: $border-width;
     box-sizing: border-box;
     overflow: hidden;
 }
 
 .navigation-container {
+    font-size: 120%;
 }
 
 .home-item , .navigation-item {
-    height: $navigation-height;
     float: right;
-    border-bottom-style: solid;
-    border-right-style: solid;
-    border-width: $border-width;
     box-sizing: border-box;
     padding: 0.5rem;
 }
-
 .home-item {
     float: left;
+    margin-right: 1rem;
 }
-
-.navigation-content {
-    height: 100%;
-    text-align: center;
-    padding: 0.2rem;
-    box-sizing: border-box;
-}
-
 .subNavigation {
     float: left;
 }
 
 .active {
-    // text-decoration: underline;
     text-decoration: line-through;
 }
 
 .worksListFrame , .content {
-    border-right-style: solid;
-    border-bottom-style: solid;
-    border-width: $border-width;
     box-sizing: border-box;
     padding: $content-padding;
 }
 
 .startpage-content {
-    padding: $startpage-padding;
     img {
         max-width: 100%;
         max-height: calc(100vh - 5rem);
@@ -144,9 +146,6 @@ iframe {
 
 
 .leftCol , .rightCol {
-    border-bottom-style: solid;
-    border-right-style: solid;
-    border-width: $border-width;
     box-sizing: border-box;
     min-height: 16rem;
     padding: $content-padding
@@ -154,13 +153,12 @@ iframe {
 
 .taglist {
     margin: 0;
-    // padding: $content-padding;
+    padding: $content-padding;
     list-style-type: none;
 }
 
 .tagItem {
-    color: red;
-    padding-right: 0.5rem;
+    padding: $content-padding;
     float: left;
 }
 
@@ -214,7 +212,7 @@ iframe {
         height: $workslist-height;
     }
     .workslist-text {
-        background: rgba(240, 220, 220, 1);
+        background: $accent_color;
         color: white;
         padding-right: 10rem;
         padding-top: 1rem;
@@ -235,10 +233,6 @@ iframe {
     .navigation-item {
         // width: calc(100%/4);
     }
-    .home-item {
-        width: 0;
-        display: none;
-    }
     .workslist {
         float: left;
     }
@@ -257,10 +251,6 @@ iframe {
     }
     .navigation-item {
         // width: calc(100%/4);
-    }
-    .home-item {
-        width: 0;
-        display: none;
     }
     .leftCol {
         width: 100%;
