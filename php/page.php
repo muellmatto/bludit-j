@@ -1,8 +1,8 @@
 
     <?php
         Theme::plugins('pageBegin');
-        $content = $Page->content();
-        $title = $Page->title();
+        $content = $page->content();
+        $title = $page->title();
         if ( $title == 'START' ) {
             // get content line by line (each line will be an image)
             $contentArray = explode(PHP_EOL, $content);
@@ -14,20 +14,24 @@
             include(THEME_DIR_PHP.'test.php');
         } else {
             // Returns the parent key, if the page doesn't have a parent returns FALSE
-            if ( $Page->parentKey() !== false) {
+            if ( $page->parentKey() !== false) {
                 // we are a child!
-                $Parent = buildPage($Page->parentKey());
-                $children = $Page->parentMethod('children');
+                $Parent = buildPage($page->parentKey());
+                $children = $page->parentMethod('children');
+                // hide subpage navigation of startpage children!
+                if ($page->parentKey() === 'start'){
+                    $children = Null;
+                }
             } else {
                 // we are parent!
-                $Parent = $Page;
+                $Parent = $page;
                 $children = $Parent->children();
             }
 
             // add subpage navigation if necessary
             if ($children) {
                 // at first add a parent link
-                if ( $Page->slug() == $Parent->slug() ) {
+                if ( $page->slug() == $Parent->slug() ) {
                     $class = 'active';
                 } else {
                     $class = '';
@@ -38,7 +42,7 @@
                 // now add a link for every child
                 foreach ($children as $ChildKey) {
                     $Child = buildPage($Parent->slug().'/'.$ChildKey);
-                    if ( $Page->slug() == $Child->slug() ) {
+                    if ( $page->slug() == $Child->slug() ) {
                         $class = 'active';
                     } else {
                         $class = '';

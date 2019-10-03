@@ -3,10 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><?php echo $Site->title() ?></title>
-        <?php Theme::favicon('favicon.ico'); ?>
-        <?php Theme::css('janna.css'); ?>
-        <?php // Theme::javascript('janna.js') ?>
+        <title><?php echo $site->title() ?></title>
+        <?php echo Theme::favicon('img/favicon.ico'); ?>
+	    <?php echo Theme::css('css/janna.css'); ?>
         <?php Theme::plugins('siteHead'); ?>
     </head>
     <body>
@@ -19,7 +18,7 @@
                 <style>
                     .title {   
                         animation-name: spin;
-                        animation-duration: 100000ms;
+                        animation-duration: 1000000ms;
                         animation-iteration-count: infinite;
                         animation-timing-function: linear;
                         position: fixed;
@@ -29,8 +28,8 @@
                         to { transform: rotate(360deg); }
                     }
                 </style>
-                <div class="home-item">
-                    <a href="<?php echo $Site->url();?>">
+                <div class="home-item title">
+                    <a href="<?php echo $site->url();?>">
                         JANNA BANNING
                     </a>
                 </div>
@@ -38,10 +37,9 @@
 
 
                 <?php
-                    $parents = $pagesParents[NO_PARENT_CHAR];
-                    foreach($parents as $Parent):
-                        if ( ($Site->homepage() != $Parent->slug()) && ( $Parent->slug() != 'impressum' ) ): 
-                            if ( strpos($Url->slug(), $Parent->slug() ) !== false) {
+                    foreach($staticContent as $Parent):
+                        if ( ($site->homepage() != $Parent->slug()) && ( $Parent->slug() != 'impressum' ) ): 
+                            if ( strpos($url->slug(), $Parent->slug() ) !== false) {
                                 $class = 'active';
                             } else {
                                 $class = '';
@@ -58,15 +56,15 @@
                 <?php endforeach; ?>
 
                 <div id="work" class="navigation-item">
-                    <a href="<?php echo $Site->uriFilters('blog')?>">
-                    <div class="navigation-content <?php if ( $Url->whereAmI() == 'blog' || $Url->whereAmI() == 'tag') {echo 'active';} ?>">
+                    <a href="<?php echo $site->uriFilters('blog')?>">
+                    <div class="navigation-content <?php if ( $url->whereAmI() == 'blog' || $url->whereAmI() == 'tag') {echo 'active';} ?>">
                             WORKS
                         </div>
                     </a>
                 </div>
                 <div id="news" class="navigation-item">
-                    <a href="<?php echo $Site->url() ?>news">
-                    <div class="navigation-content <?php if ( $Url->slug() == 'news') {echo 'active';} ?>">
+                    <a href="/news">
+                    <div class="navigation-content <?php if ( $url->slug() == 'news') {echo 'active';} ?>">
                             NEWS & EXPOS
                         </div>
                     </a>
@@ -78,32 +76,26 @@
 
                 <?php 
                     /*
-                    echo $Url->whereAmI();
+                    echo $url->whereAmI();
                         home | page | blog | post | tag
                     */
 
-                    if ($Url->slug() == "news"){
+                    if ($url->slug() == "news"){
                         include(THEME_DIR_PHP.'news.php');
-                    }elseif ($Url->whereAmI() == 'page') {
+                    }elseif ($url->whereAmI() == 'page') {
                         include(THEME_DIR_PHP.'page.php');
-                    } elseif ($Url->whereAmI() == 'post')  {
+                    } elseif ($url->whereAmI() == 'post')  {
                         include(THEME_DIR_PHP.'post.php');
-                    } elseif ( ($Url->whereAmI()=='blog') || ($Url->whereAmI()=='tag') )  {
+                    } elseif ( ($url->whereAmI()=='blog') || ($url->whereAmI()=='tag') )  {
                         include(THEME_DIR_PHP.'works.php');
                     }
                 ?>
 
 
-            <a href="<?php echo $Site->url() ?>impressum">
+            <a href="<?php echo $site->url() ?>impressum">
                 <span style="float: right; padding: 2rem;">IMPRESSUM</span>
             </a>
         </div>
-        
         <?php Theme::plugins('siteBodyEnd') ?>
-        <?php Theme::css('photoswipe.css'); ?>
-        <?php Theme::css('default-skin/default-skin.css'); ?>
-        <?php Theme::javascript('photoswipe.min.js'); ?>
-        <?php Theme::javascript('photoswipe-ui-default.min.js'); ?>
-
     </body>
 </html>

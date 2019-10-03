@@ -215,6 +215,15 @@ h5 {
 iframe {
   width: 100%; }
 
+.red {
+  color: red; }
+
+.green {
+  color: lime; }
+
+.blue {
+  color: blue; }
+
 .frame {
   max-width: 70rem;
   margin: auto;

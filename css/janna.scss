@@ -10,6 +10,10 @@ $switch-width2: 20rem;
 $accent_color: rgba(240, 220, 220, 1);
 $font_color: rgb(70,50,70);
 
+$color_red: rgb(255,0,0);
+$color_green: rgb(0,255,0);
+$color_blue: rgb(0,0,255);
+
 @font-face {
     font-family: 'Josefin Sans';
     src: url('../fonts/JosefinSans-Light.ttf') format('truetype');
@@ -103,6 +107,9 @@ iframe {
     width: 100%;
 }
 
+.red {color: $color_red;}
+.green {color: $color_green;}
+.blue {color: $color_blue;}
 .frame {
     max-width: $maxwidth;
     margin: auto;
