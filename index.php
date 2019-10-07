@@ -32,7 +32,7 @@
                 </style>
                 <div class="home-item title">
                     <a href="<?php echo $site->url();?>">
-                        JANNA<br>BANNING
+                        JANNA BANNING
                     </a>
                 </div>
                 <div style="clear: right;"></div>
