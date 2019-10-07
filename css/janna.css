@@ -232,10 +232,12 @@ iframe {
   overflow: hidden; }
 
 .navigation-container {
-  font-size: 120%; }
+  font-size: 120%;
+  padding-left: 6rem;
+  text-align: right; }
 
 .home-item, .navigation-item {
-  float: right;
+  display: inline-block;
   box-sizing: border-box;
   padding: 0.5rem; }
 

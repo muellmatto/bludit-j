@@ -22,6 +22,8 @@
                         animation-iteration-count: infinite;
                         animation-timing-function: linear;
                         position: fixed;
+                        top: 1rem;
+                        left: 0rem;
                     }
                     @keyframes spin {
                         from { transform: rotate(0deg); }
@@ -30,10 +32,24 @@
                 </style>
                 <div class="home-item title">
                     <a href="<?php echo $site->url();?>">
-                        JANNA BANNING
+                        JANNA<br>BANNING
                     </a>
                 </div>
                 <div style="clear: right;"></div>
+                <div id="news" class="navigation-item">
+                    <a href="/news">
+                    <div class="navigation-content <?php if ( $url->slug() == 'news') {echo 'active';} ?>">
+                            NEWS & EXPOS
+                        </div>
+                    </a>
+                </div>
+                <div id="work" class="navigation-item">
+                    <a href="<?php echo $site->uriFilters('blog')?>">
+                    <div class="navigation-content <?php if ( $url->whereAmI() == 'blog' || $url->whereAmI() == 'tag') {echo 'active';} ?>">
+                            WORKS
+                        </div>
+                    </a>
+                </div>
 
 
                 <?php
@@ -55,21 +71,6 @@
                     <?php endif; ?>
                 <?php endforeach; ?>
 
-                <div id="work" class="navigation-item">
-                    <a href="<?php echo $site->uriFilters('blog')?>">
-                    <div class="navigation-content <?php if ( $url->whereAmI() == 'blog' || $url->whereAmI() == 'tag') {echo 'active';} ?>">
-                            WORKS
-                        </div>
-                    </a>
-                </div>
-                <div id="news" class="navigation-item">
-                    <a href="/news">
-                    <div class="navigation-content <?php if ( $url->slug() == 'news') {echo 'active';} ?>">
-                            NEWS & EXPOS
-                        </div>
-                    </a>
-                </div>
-                <div style="clear: both;"></div>
             </div>
             <!-- nav end -->
 
