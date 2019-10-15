@@ -252,6 +252,16 @@ iframe {
   box-sizing: border-box;
   padding: 0.5rem; }
 
+.newsListFrame {
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: wrap;
+  align-items: flex-end;
+  align-content: left;
+  justify-content: left;
+  align-content: left;
+  justify-content: left; }
+
 .worksListFrame {
   display: flex;
   flex-wrap: wrap;
@@ -294,6 +304,9 @@ iframe {
   margin: 0;
   height: 16rem;
   box-sizing: border-box; }
+
+.news img, .exhibitions img {
+  height: 16rem; }
 
 .news {
   background-color: #ff005e; }

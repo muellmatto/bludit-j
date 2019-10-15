@@ -20,7 +20,7 @@
             );
 
             
-            echo '<div class="worksListFrame">';
+            echo '<div class="newsListFrame">';
                     foreach ($posts as $i) {
                         if ( strpos($i->tags(), 'News') !== false ) {
                             $class = "news";

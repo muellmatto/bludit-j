@@ -142,6 +142,18 @@ iframe {
     box-sizing: border-box;
     padding: $content-padding;
 }
+.newsListFrame {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: wrap;
+    align-items: flex-end;
+    // align-content: space-between;
+    // justify-content: space-between;
+    align-content: left;
+    justify-content: left;
+    align-content: left;
+    justify-content: left;
+}
 .worksListFrame {
     display: flex;
     flex-wrap: wrap;
@@ -199,12 +211,14 @@ iframe {
     height: 16rem;
     box-sizing: border-box;
 }
+.news, .exhibitions {
+    img {
+        height: $workslist-height;
+    }
+}
 .news {
     background-color: #ff005e;
-    // height: 32rem;
-    // overflow: scroll;
 }
-
 .exhibitions {
     background-color: #48fd90;
 }
