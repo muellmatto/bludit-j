@@ -46,7 +46,7 @@
             }
         }
     echo '</ul>';
-    echo '<div style="clear: both;></div>"';
+    echo '<div style="clear: both;"></div>"';
 
 
         echo '<div class="worksListFrame">';
