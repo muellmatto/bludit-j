@@ -61,9 +61,7 @@
             echo '<div class="workslist">';
             echo '<a href="'.$Post->permalink().'">';
             if($Post->coverImage()) {
-                echo '<img src="'.$Post->coverImage().'" alt="Cover Image">';
-                // TODO
-                // echo '<img src="'.$Post->coverImage().'&w=400&h=400" alt="Cover Image">';
+                echo '<img src="'.$Post->coverImage().'&w=400&h=400" alt="Cover Image">';
             } else {
                 echo '<h3 class="workslist-text">'.$Post->title().'</h3>';
             }

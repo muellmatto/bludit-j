@@ -256,9 +256,11 @@ iframe {
   display: flex;
   flex-wrap: wrap;
   flex-flow: wrap;
-  align-items: space-between;
-  align-content: space-between;
-  justify-content: space-between; }
+  align-items: flex-end;
+  align-content: space-around;
+  justify-content: space-around;
+  align-content: space-evenly;
+  justify-content: space-evenly; }
 
 .startpage-content img {
   max-width: 100%;
