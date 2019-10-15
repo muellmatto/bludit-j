@@ -28,31 +28,6 @@
                 $children = $Parent->children();
             }
 
-            // add subpage navigation if necessary
-            if ($children) {
-                // at first add a parent link
-                if ( $page->slug() == $Parent->slug() ) {
-                    $class = 'active';
-                } else {
-                    $class = '';
-                }
-                echo '<a href="'.$Parent->permalink().'">';
-                echo '<h2 class="subNavigation '.$class.'">'.$Parent->title().'</h2>';
-                echo '</a>';
-                // now add a link for every child
-                foreach ($children as $ChildKey) {
-                    $Child = buildPage($Parent->slug().'/'.$ChildKey);
-                    if ( $page->slug() == $Child->slug() ) {
-                        $class = 'active';
-                    } else {
-                        $class = '';
-                    }
-                    echo '<a href="'.$Child->permalink().'">';
-                    echo '<h2 class="subNavigation '.$class.'">'.$Child->title().'</h2>';
-                    echo '</a>';
-                }
-                echo '<div style="clear: both;"></div>';
-            }
             // add content
             echo '<div class="content">'.$content.'</div>';
         }
