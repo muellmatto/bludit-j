@@ -245,9 +245,6 @@ iframe {
   float: left;
   margin-right: 1rem; }
 
-.subNavigation {
-  float: left; }
-
 .active {
   text-decoration: line-through; }
 
@@ -255,14 +252,17 @@ iframe {
   box-sizing: border-box;
   padding: 0.5rem; }
 
+.worksListFrame {
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: wrap;
+  align-items: space-between;
+  align-content: space-between;
+  justify-content: space-between; }
+
 .startpage-content img {
   max-width: 100%;
   max-height: calc(100vh - 5rem); }
-
-.leftCol, .rightCol {
-  box-sizing: border-box;
-  min-height: 16rem;
-  padding: 0.5rem; }
 
 .taglist {
   margin: 0;
@@ -277,10 +277,21 @@ iframe {
   box-sizing: border-box;
   padding: calc(0.5rem /4);
   margin: calc(0.5rem /4);
-  overflow: hidden; }
+  align-self: flex-end; }
 
 .workslist img {
-  max-width: 100%; }
+  max-width: 100%;
+  max-height: 16rem; }
+
+.workslist-text {
+  background: #f0dcdc;
+  color: white;
+  padding-right: 10rem;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  margin: 0;
+  height: 16rem;
+  box-sizing: border-box; }
 
 .news {
   background-color: #ff005e; }
@@ -289,59 +300,14 @@ iframe {
   background-color: #48fd90; }
 
 @media (min-width: 40rem) {
-  .leftCol {
-    width: 50%;
-    height: 100%;
-    float: left;
-    box-sizing: border-box; }
-
-  .rightCol {
-    width: 50%;
-    height: 100%;
-    box-sizing: border-box;
-    float: right; }
-
-  .workslist {
-    float: left; }
-
-  .workslist img {
-    height: 16rem; }
-
-  .workslist-text {
-    background: #f0dcdc;
-    color: white;
-    padding-right: 10rem;
-    padding-top: 1rem;
-    padding-left: 1rem;
-    margin: 0;
-    height: 16rem;
-    box-sizing: border-box; }
-
   .content img {
     max-width: 50%; } }
 @media (max-width: 40rem) {
-  .workslist {
-    float: left; }
-
-  .workslist img {
-    max-height: 16rem; }
-
   .content img {
     max-width: 100%; } }
 @media (max-width: 20rem) {
-  .leftCol {
-    width: 100%;
-    height: 30%; }
-
-  .rightCol {
-    width: 100%;
-    height: 40%; }
-
   .workslist {
     width: 100%; }
-
-  .workslist img {
-    max-height: 16rem; }
 
   .content img {
     max-width: 100%; } }
