@@ -62,7 +62,6 @@
             $index++;
             echo '<div class="workslist '.$Post->category().'">';
             echo '<a href="'.$Post->permalink().'">';
-            echo $index.' % 2 = '.($index % 2);
             if($Post->coverImage()) {
                 if ($Post->category() == 'huge') {
                     $img_height=480;
