@@ -228,14 +228,14 @@ iframe {
     align-self: flex-end;
     img {
         max-width: 100%;
-        max-height: $workslist-height;
+        height: $workslist-height;
     }
 }
-.workslist:nth-child(2n)   img { max-height: $workslist-height + 2rem}
-.workslist:nth-child(3n)   img { max-height: $workslist-height + 5rem}
-.workslist:nth-child(5n)   img { max-height: $workslist-height + 7rem}
-.workslist:nth-child(7n)   img { max-height: $workslist-height + 11rem}
-.huge  img { max-height: $workslist-height + 24rem !important}
+.workslist:nth-child(2n)   img { height: $workslist-height + 2rem}
+.workslist:nth-child(3n)   img { height: $workslist-height + 5rem}
+.workslist:nth-child(5n)   img { height: $workslist-height + 7rem}
+.workslist:nth-child(7n)   img { height: $workslist-height + 9rem}
+.huge  img { height: $workslist-height + 14rem !important}
 
 .workslist-text {
     background: $accent_color;

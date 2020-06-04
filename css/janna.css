@@ -321,22 +321,22 @@ iframe {
   align-self: flex-end; }
   .workslist img {
     max-width: 100%;
-    max-height: 16rem; }
+    height: 16rem; }
 
 .workslist:nth-child(2n) img {
-  max-height: 18rem; }
+  height: 18rem; }
 
 .workslist:nth-child(3n) img {
-  max-height: 21rem; }
+  height: 21rem; }
 
 .workslist:nth-child(5n) img {
-  max-height: 23rem; }
+  height: 23rem; }
 
 .workslist:nth-child(7n) img {
-  max-height: 27rem; }
+  height: 25rem; }
 
 .huge img {
-  max-height: 40rem !important; }
+  height: 30rem !important; }
 
 .workslist-text {
   background: #f0dcdc;
