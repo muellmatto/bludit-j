@@ -62,9 +62,9 @@
             echo '<a href="'.$Post->permalink().'">';
             if($Post->coverImage()) {
                 if ($Post->category() == 'huge') {
-                    echo '<img src="'.$Post->coverImage().'&w=700&h=700" alt="Cover Image">';
+                    echo '<img src="'.$Post->coverImage().'&w=640&h=640" alt="'.$Post->title().'" loading="lazy">';
                 } else {
-                    echo '<img src="'.$Post->coverImage().'&w=400&h=400" alt="Cover Image">';
+                    echo '<img src="'.$Post->coverImage().'&w=400&h=400" alt="'.$Post->title().'" loading="lazy">';
                 }
             } else {
                 echo '<h3 class="workslist-text">'.$Post->title().'</h3>';
