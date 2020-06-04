@@ -76,7 +76,12 @@
                 } else {
                     $img_height=256;
                 }
-                echo '<img src="'.$Post->coverImage().'&h='.$img_height.'&q=80" alt="'.$Post->title().'" loading="lazy">';
+                if (strtolower( substr($Post->coverImage(), -3) ) == "gif") {
+                    $img_params = "";
+                } else {
+                    $img_params = "&h=".$img_height."&q=80";
+                }
+                echo '<img src="'.$Post->coverImage().$img_params.'" alt="'.$Post->title().'" loading="lazy">';
             } else {
                 echo '<h3 class="workslist-text">'.$Post->title().'</h3>';
             }
