@@ -13,7 +13,7 @@
 
         <div class="frame">
             <!-- nav -->
-            <div class="navigation-container">
+            <nav class="navigation-container">
 
                 <style>
                     .title {   
@@ -71,7 +71,7 @@
                     <?php endif; ?>
                 <?php endforeach; ?>
 
-            </div>
+            </nav>
             <!-- nav end -->
 
 
@@ -93,9 +93,11 @@
                 ?>
 
 
-            <a href="<?php echo $site->url() ?>impressum">
-                <span style="float: right; padding: 2rem;">IMPRESSUM</span>
-            </a>
+            <footer style="float: right; padding: 2rem;">
+                <a href="<?php echo $site->url() ?>impressum">
+                    IMPRESSUM
+                </a>
+            </footer>
         </div>
         <?php Theme::plugins('siteBodyEnd') ?>
     </body>
