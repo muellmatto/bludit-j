@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,21 +15,6 @@
             <!-- nav -->
             <nav class="navigation-container">
 
-                <style>
-                    .title {   
-                        animation-name: spin;
-                        animation-duration: 1000000ms;
-                        animation-iteration-count: infinite;
-                        animation-timing-function: linear;
-                        position: fixed;
-                        top: 1rem;
-                        left: 0rem;
-                    }
-                    @keyframes spin {
-                        from { transform: rotate(0deg); }
-                        to { transform: rotate(360deg); }
-                    }
-                </style>
                 <div class="home-item title">
                     <a href="<?php echo $site->url();?>">
                         JANNA BANNING
@@ -92,8 +77,16 @@
                     }
                 ?>
 
+            <!-- aside>
+                <a href="mailto:post@jannabanning.de" targe=_blank rel=noopener>
+                    EMAIL me.
+                </a>
+                <a href="https://instagram.com/janna_banning" targe=_blank rel=noopener>
+                    INSTAGRAM
+                </a>
+            </aside -->
 
-            <footer style="float: right; padding: 2rem;">
+            <footer>
                 <a href="<?php echo $site->url() ?>impressum">
                     IMPRESSUM
                 </a>
