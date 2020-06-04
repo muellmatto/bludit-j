@@ -46,7 +46,7 @@
             }
         }
     echo '</ul>';
-    echo '<div style="clear: both;"></div>"';
+    echo '<div style="clear: both;"></div>';
 
 
         echo '<div class="worksListFrame">';
@@ -57,15 +57,27 @@
                 $posts[] = new Page($pageKey);
             }
         }
+        $index = 0;
         foreach ($posts as $Post) {
+            $index++;
             echo '<div class="workslist '.$Post->category().'">';
             echo '<a href="'.$Post->permalink().'">';
+            echo $index.' % 2 = '.($index % 2);
             if($Post->coverImage()) {
                 if ($Post->category() == 'huge') {
-                    echo '<img src="'.$Post->coverImage().'&w=640&h=640" alt="'.$Post->title().'" loading="lazy">';
+                    $img_height=480;
+                } elseif ($index % 7 == 0) {
+                    $img_height=400;
+                } elseif ($index % 5 == 0) {
+                    $img_height=368;
+                } elseif ($index % 3 == 0) {
+                    $img_height=336;
+                } elseif ($index % 2 == 0) {
+                    $img_height=288;
                 } else {
-                    echo '<img src="'.$Post->coverImage().'&w=400&h=400" alt="'.$Post->title().'" loading="lazy">';
+                    $img_height=256;
                 }
+                echo '<img src="'.$Post->coverImage().'&h='.$img_height.'&q=70" alt="'.$Post->title().'" loading="lazy">';
             } else {
                 echo '<h3 class="workslist-text">'.$Post->title().'</h3>';
             }
