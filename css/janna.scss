@@ -8,11 +8,13 @@ $switch-width2: 20rem;
 
 /* colors */
 $accent_color: rgba(240, 220, 220, 1);
-$font_color: rgb(70,50,70);
+$font_color: rgb(0,37,255);
 
 $color_red: rgb(255,0,0);
 $color_green: rgb(0,255,0);
 $color_blue: rgb(0,0,255);
+
+$line_height_body: 1rem;
 
 @font-face {
     font-family: 'Josefin Sans';
@@ -23,7 +25,7 @@ $color_blue: rgb(0,0,255);
 
 body {
     font-family: 'Josefin Sans', sans-serif;
-    line-height: 1.4rem;
+    line-height: $line_height_body;
     font-weight: 300;
     color: $font_color;
 }
