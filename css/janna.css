@@ -152,6 +152,20 @@ body {
   font-weight: 300;
   color: #0025ff; }
 
+aside {
+  z-index: 9;
+  transform: rotate(-90deg);
+  right: -10rem;
+  top: 48vh;
+  position: fixed; }
+  aside a {
+    margin-right: 5rem;
+    text-decoration: dashed underline; }
+
+footer {
+  float: right;
+  padding: 2rem; }
+
 a {
   text-decoration: none;
   color: inherit; }
@@ -236,6 +250,20 @@ iframe {
   padding-left: 11rem;
   text-align: right; }
 
+.title {
+  animation-name: spin;
+  animation-duration: 1000000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  position: fixed;
+  top: 1rem;
+  left: 0rem; }
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
 .home-item, .navigation-item {
   display: inline-block;
   box-sizing: border-box;
@@ -289,11 +317,26 @@ iframe {
   box-sizing: border-box;
   padding: calc(0.5rem /4);
   margin: calc(0.5rem /4);
+  margin-bottom: 6rem;
   align-self: flex-end; }
+  .workslist img {
+    max-width: 100%;
+    max-height: 16rem; }
 
-.workslist img {
-  max-width: 100%;
-  max-height: 16rem; }
+.workslist:nth-child(2n) img {
+  max-height: 18rem; }
+
+.workslist:nth-child(3n) img {
+  max-height: 21rem; }
+
+.workslist:nth-child(5n) img {
+  max-height: 23rem; }
+
+.workslist:nth-child(7n) img {
+  max-height: 27rem; }
+
+.huge img {
+  max-height: 40rem !important; }
 
 .workslist-text {
   background: #f0dcdc;
