@@ -323,22 +323,22 @@ iframe {
     max-width: 100%; }
 
 .workslist img {
-  height: 16rem; }
+  max-height: 16rem; }
 
 .workslist:nth-child(2n) img {
-  height: 18rem; }
+  max-height: 18rem; }
 
 .workslist:nth-child(3n) img {
-  height: 21rem; }
+  max-height: 21rem; }
 
 .workslist:nth-child(5n) img {
-  height: 23rem; }
+  max-height: 23rem; }
 
 .workslist:nth-child(7n) img {
-  height: 25rem; }
+  max-height: 25rem; }
 
 .huge img {
-  height: 30rem !important; }
+  max-height: 30rem !important; }
 
 .workslist-text {
   background: #f0dcdc;

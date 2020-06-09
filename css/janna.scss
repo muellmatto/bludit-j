@@ -231,12 +231,12 @@ iframe {
     }
 }
 // diffrent image sizes ... estimating 1rem equals 16px ... 
-.workslist                 img { height: $workslist-height; }                   // h=256px
-.workslist:nth-child(2n)   img { height: $workslist-height + 2rem;}             // h=288px
-.workslist:nth-child(3n)   img { height: $workslist-height + 5rem;}             // h=336px
-.workslist:nth-child(5n)   img { height: $workslist-height + 7rem;}             // h=368px
-.workslist:nth-child(7n)   img { height: $workslist-height + 9rem;}             // h=400px
-.huge                      img { height: $workslist-height + 14rem !important;} // h=480px
+.workslist                 img { max-height: $workslist-height; }                   // h=256px
+.workslist:nth-child(2n)   img { max-height: $workslist-height + 2rem;}             // h=288px
+.workslist:nth-child(3n)   img { max-height: $workslist-height + 5rem;}             // h=336px
+.workslist:nth-child(5n)   img { max-height: $workslist-height + 7rem;}             // h=368px
+.workslist:nth-child(7n)   img { max-height: $workslist-height + 9rem;}             // h=400px
+.huge                      img { max-height: $workslist-height + 14rem !important;} // h=480px
 
 .workslist-text {
     background: $accent_color;
