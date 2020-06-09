@@ -148,6 +148,7 @@ iframe {
     position: fixed;
     top: 1rem;
     left: 0rem;
+    z-index: 100;
 }
 @keyframes spin {
     from { transform: rotate(0deg); }
@@ -256,7 +257,7 @@ iframe {
     padding: 1rem;
     backdrop-filter: blur(4px);
     transition: opacity 0.3s;
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 2rem;
     text-align: right;
     width: 100%;
