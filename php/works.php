@@ -81,6 +81,7 @@
                 } else {
                     $img_params = "&h=".$img_height."&q=80";
                 }
+                echo '<h3 class="workslist-sub-text">'.$Post->title().'</h3>';
                 echo '<img src="'.$Post->coverImage().$img_params.'" alt="'.$Post->title().'" loading="lazy">';
             } else {
                 echo '<h3 class="workslist-text">'.$Post->title().'</h3>';

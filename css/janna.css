@@ -314,6 +314,7 @@ iframe {
   float: left; }
 
 .workslist {
+  position: relative;
   box-sizing: border-box;
   padding: calc(0.5rem /4);
   margin: calc(0.5rem /4);
@@ -340,15 +341,33 @@ iframe {
 .huge img {
   max-height: 30rem !important; }
 
+.workslist-text, .workslist-sub-text {
+  color: white;
+  margin: 0;
+  box-sizing: border-box; }
+
 .workslist-text {
   background: #f0dcdc;
-  color: white;
+  height: 16rem;
   padding-right: 10rem;
   padding-top: 1rem;
-  padding-left: 1rem;
-  margin: 0;
-  height: 16rem;
-  box-sizing: border-box; }
+  padding-left: 1rem; }
+
+.workslist-sub-text {
+  opacity: 0;
+  padding: 1rem;
+  backdrop-filter: blur(4px);
+  transition: opacity 0.3s;
+  font-size: 2rem;
+  line-height: 2rem;
+  text-align: right;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0; }
+  .workslist-sub-text:hover {
+    opacity: 0.9; }
 
 .news img, .exhibitions img {
   height: 16rem; }
